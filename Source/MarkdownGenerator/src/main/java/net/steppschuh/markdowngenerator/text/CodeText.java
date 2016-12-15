@@ -1,6 +1,6 @@
 package net.steppschuh.markdowngenerator.text;
 
-public class CodeText extends TextFormatter {
+public class CodeText extends Text {
 
     public CodeText(Object value) {
         super(value);

@@ -95,8 +95,8 @@ public class Table extends MarkdownElement {
     }
 
     /**
-     * Removes {@link TableRow}s from the center of this table until only the requested
-     * amount of rows is left.
+     * Removes {@link TableRow}s from the center of this table until only the requested amount of
+     * rows is left.
      *
      * @param rowsToKeep Amount of {@link TableRow}s that should not be removed
      */
@@ -147,7 +147,7 @@ public class Table extends MarkdownElement {
             int alignment = getAlignment(alignments, columnIndex);
             switch (alignment) {
                 case ALIGN_RIGHT: {
-                    value = " " + value + ":";
+                    value = WHITESPACE + value + ":";
                     break;
                 }
                 case ALIGN_CENTER: {
@@ -155,7 +155,7 @@ public class Table extends MarkdownElement {
                     break;
                 }
                 default: {
-                    value = StringUtil.surroundValueWith(value, " ");
+                    value = StringUtil.surroundValueWith(value, WHITESPACE);
                     break;
                 }
             }
@@ -204,6 +204,7 @@ public class Table extends MarkdownElement {
 
     public void setRows(List<TableRow> rows) {
         this.rows = rows;
+        invalidateSerialized();
     }
 
     public List<Integer> getAlignments() {
@@ -212,6 +213,7 @@ public class Table extends MarkdownElement {
 
     public void setAlignments(List<Integer> alignments) {
         this.alignments = alignments;
+        invalidateSerialized();
     }
 
     public boolean isFirstRowHeader() {
@@ -220,6 +222,7 @@ public class Table extends MarkdownElement {
 
     public void useFirstRowAsHeader(boolean firstRowIsHeader) {
         this.firstRowIsHeader = firstRowIsHeader;
+        invalidateSerialized();
     }
 
     public int getMinimumColumnWidth() {
@@ -228,5 +231,6 @@ public class Table extends MarkdownElement {
 
     public void setMinimumColumnWidth(int minimumColumnWidth) {
         this.minimumColumnWidth = minimumColumnWidth;
+        invalidateSerialized();
     }
 }

@@ -1,6 +1,6 @@
 package net.steppschuh.markdowngenerator.text;
 
-public class StrikeThroughText extends TextFormatter {
+public class StrikeThroughText extends Text {
 
     public StrikeThroughText(Object value) {
         super(value);

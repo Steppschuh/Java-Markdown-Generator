@@ -40,6 +40,7 @@ public class UnorderedList<T extends Object> extends MarkdownElement {
 
     public void setItems(List<T> items) {
         this.items = items;
+        invalidateSerialized();
     }
 
 }

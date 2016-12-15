@@ -2,9 +2,9 @@ package net.steppschuh.markdowngenerator.text;
 
 import net.steppschuh.markdowngenerator.MarkdownSerializationException;
 
-public class CodeTextBlock extends TextFormatter {
+public class CodeTextBlock extends Text {
 
-    String language;
+    private String language;
 
     public CodeTextBlock(Object value) {
         this(value, "");
@@ -33,4 +33,12 @@ public class CodeTextBlock extends TextFormatter {
         return getPredecessor();
     }
 
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
+        invalidateSerialized();
+    }
 }

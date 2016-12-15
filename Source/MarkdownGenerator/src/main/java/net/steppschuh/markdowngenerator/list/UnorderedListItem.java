@@ -1,8 +1,8 @@
 package net.steppschuh.markdowngenerator.list;
 
-import net.steppschuh.markdowngenerator.text.TextFormatter;
+import net.steppschuh.markdowngenerator.text.Text;
 
-public class UnorderedListItem extends TextFormatter {
+public class UnorderedListItem extends Text {
 
     public UnorderedListItem(Object value) {
         super(value);

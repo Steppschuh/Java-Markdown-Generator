@@ -31,6 +31,7 @@ public class Link extends MarkdownElement {
 
     public void setText(Object text) {
         this.text = text;
+        invalidateSerialized();
     }
 
     public String getUrl() {
@@ -39,6 +40,7 @@ public class Link extends MarkdownElement {
 
     public void setUrl(String url) {
         this.url = url;
+        invalidateSerialized();
     }
 
 }

@@ -9,7 +9,7 @@ import java.util.List;
 
 public class TableRow<T extends Object> extends MarkdownElement {
 
-    List<T> columns;
+    private List<T> columns;
 
     public TableRow() {
         this.columns = new ArrayList<>();
@@ -44,6 +44,7 @@ public class TableRow<T extends Object> extends MarkdownElement {
 
     public void setColumns(List<T> columns) {
         this.columns = columns;
+        invalidateSerialized();
     }
 
 }
