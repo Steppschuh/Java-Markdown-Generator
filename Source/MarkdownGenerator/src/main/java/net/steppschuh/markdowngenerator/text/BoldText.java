@@ -7,12 +7,12 @@ public class BoldText extends TextFormatter {
     }
 
     @Override
-    public String getPredecessor() {
+    protected String getPredecessor() {
         return "**";
     }
 
     @Override
-    public String getSuccessor() {
+    protected String getSuccessor() {
         return getPredecessor();
     }
 

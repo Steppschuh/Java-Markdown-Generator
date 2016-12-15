@@ -1,11 +1,12 @@
 package net.steppschuh.markdowngenerator.link;
 
 import net.steppschuh.markdowngenerator.MarkdownElement;
+import net.steppschuh.markdowngenerator.MarkdownSerializationException;
 
 public class Link extends MarkdownElement {
 
-    Object text;
-    String url;
+    private Object text;
+    private String url;
 
     public Link(Object text, String url) {
         this.text = text;
@@ -17,7 +18,7 @@ public class Link extends MarkdownElement {
     }
 
     @Override
-    public String serialize() {
+    public String serialize() throws MarkdownSerializationException {
         StringBuilder sb = new StringBuilder();
         sb.append("[").append(text).append("]");
         sb.append("(").append(url).append(")");
@@ -39,4 +40,5 @@ public class Link extends MarkdownElement {
     public void setUrl(String url) {
         this.url = url;
     }
+
 }

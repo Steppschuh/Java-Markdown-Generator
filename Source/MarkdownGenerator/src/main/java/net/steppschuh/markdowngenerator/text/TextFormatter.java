@@ -1,11 +1,12 @@
 package net.steppschuh.markdowngenerator.text;
 
 import net.steppschuh.markdowngenerator.MarkdownElement;
+import net.steppschuh.markdowngenerator.MarkdownSerializationException;
 
 public abstract class TextFormatter extends MarkdownElement {
 
-    public final String predecessor = getPredecessor();
-    public final String successor = getSuccessor();
+    final String predecessor = getPredecessor();
+    final String successor = getSuccessor();
 
     Object value;
 
@@ -14,15 +15,19 @@ public abstract class TextFormatter extends MarkdownElement {
     }
 
     @Override
-    public String serialize() {
+    public String serialize() throws MarkdownSerializationException {
+        if (value == null) {
+            throw new MarkdownSerializationException("Value is null");
+        }
         return predecessor + value.toString() + successor;
     }
 
-    public String getPredecessor() {
+    protected String getPredecessor() {
         return "";
     }
 
-    public String getSuccessor() {
+    protected String getSuccessor() {
         return "";
     }
+
 }

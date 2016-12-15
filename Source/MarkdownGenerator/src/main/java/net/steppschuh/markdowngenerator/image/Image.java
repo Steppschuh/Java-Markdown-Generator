@@ -1,5 +1,6 @@
 package net.steppschuh.markdowngenerator.image;
 
+import net.steppschuh.markdowngenerator.MarkdownSerializationException;
 import net.steppschuh.markdowngenerator.link.Link;
 
 public class Image extends Link {
@@ -13,7 +14,7 @@ public class Image extends Link {
     }
 
     @Override
-    public String serialize() {
+    public String serialize() throws MarkdownSerializationException {
         return "!" + super.serialize();
     }
 

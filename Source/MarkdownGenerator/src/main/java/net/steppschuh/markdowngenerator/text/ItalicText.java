@@ -7,12 +7,12 @@ public class ItalicText extends TextFormatter {
     }
 
     @Override
-    public String getPredecessor() {
+    protected String getPredecessor() {
         return "_";
     }
 
     @Override
-    public String getSuccessor() {
+    protected String getSuccessor() {
         return getPredecessor();
     }
 

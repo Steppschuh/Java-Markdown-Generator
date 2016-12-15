@@ -1,18 +1,18 @@
 package net.steppschuh.markdowngenerator.text;
 
-public class NormalText extends TextFormatter {
+public class Text extends TextFormatter {
 
-    public NormalText(Object value) {
+    public Text(Object value) {
         super(value);
     }
 
     @Override
-    public String getPredecessor() {
+    protected String getPredecessor() {
         return "";
     }
 
     @Override
-    public String getSuccessor() {
+    protected String getSuccessor() {
         return getPredecessor();
     }
 

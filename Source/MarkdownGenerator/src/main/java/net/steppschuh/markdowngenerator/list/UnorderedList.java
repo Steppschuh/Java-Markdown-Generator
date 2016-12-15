@@ -1,24 +1,25 @@
 package net.steppschuh.markdowngenerator.list;
 
 import net.steppschuh.markdowngenerator.MarkdownElement;
+import net.steppschuh.markdowngenerator.MarkdownSerializationException;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class UnorderedList extends MarkdownElement {
+public class UnorderedList<T extends Object> extends MarkdownElement {
 
-    private List<Object> items;
+    private List<T> items;
 
     public UnorderedList() {
         this.items = new ArrayList<>();
     }
 
-    public UnorderedList(List<Object> items) {
+    public UnorderedList(List<T> items) {
         this.items = items;
     }
 
     @Override
-    public String serialize() {
+    public String serialize() throws MarkdownSerializationException {
         StringBuilder sb = new StringBuilder();
         for (Object item : items) {
             if (item instanceof UnorderedListItem) {
@@ -33,11 +34,11 @@ public class UnorderedList extends MarkdownElement {
         return sb.toString();
     }
 
-    public List<Object> getItems() {
+    public List<T> getItems() {
         return items;
     }
 
-    public void setItems(List<Object> items) {
+    public void setItems(List<T> items) {
         this.items = items;
     }
 
