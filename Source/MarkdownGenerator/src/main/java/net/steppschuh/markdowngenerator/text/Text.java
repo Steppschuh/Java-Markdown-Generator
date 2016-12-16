@@ -5,9 +5,6 @@ import net.steppschuh.markdowngenerator.MarkdownSerializationException;
 
 public class Text extends MarkdownElement {
 
-    final String predecessor = getPredecessor();
-    final String successor = getSuccessor();
-
     Object value;
 
     public Text(Object value) {
@@ -19,7 +16,7 @@ public class Text extends MarkdownElement {
         if (value == null) {
             throw new MarkdownSerializationException("Value is null");
         }
-        return predecessor + value.toString() + successor;
+        return getPredecessor() + value.toString() + getSuccessor();
     }
 
     protected String getPredecessor() {
@@ -28,6 +25,15 @@ public class Text extends MarkdownElement {
 
     protected String getSuccessor() {
         return getPredecessor();
+    }
+
+    public Object getValue() {
+        return value;
+    }
+
+    public void setValue(Object value) {
+        this.value = value;
+        invalidateSerialized();
     }
 
 }

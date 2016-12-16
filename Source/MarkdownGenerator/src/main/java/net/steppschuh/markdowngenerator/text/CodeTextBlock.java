@@ -20,7 +20,7 @@ public class CodeTextBlock extends Text {
         if (value == null) {
             throw new MarkdownSerializationException("Value is null");
         }
-        return predecessor + language + "\n" + value.toString() + "\n" + successor;
+        return getPredecessor() + language + "\n" + value.toString() + "\n" + getSuccessor();
     }
 
     @Override
