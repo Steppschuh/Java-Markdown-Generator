@@ -8,6 +8,7 @@ public abstract class MarkdownElement implements MarkdownSerializable {
      * Attempts to generate a String representing this markdown element.
      *
      * @return Markdown as String
+     * @throws MarkdownSerializationException If unable to generate a markdown String
      */
     public abstract String serialize() throws MarkdownSerializationException;
 
@@ -31,6 +32,7 @@ public abstract class MarkdownElement implements MarkdownSerializable {
      * MarkdownElement#serialized}.
      *
      * @return Markdown as String
+     * @throws MarkdownSerializationException If unable to generate a markdown String
      */
     public String getSerialized() throws MarkdownSerializationException {
         if (serialized == null) {

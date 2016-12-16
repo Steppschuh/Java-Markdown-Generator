@@ -159,6 +159,7 @@ public class Table extends MarkdownElement {
      * rows is left.
      *
      * @param rowsToKeep Amount of {@link TableRow}s that should not be removed
+     * @return the trimmed table
      */
     public Table trim(int rowsToKeep) {
         rows = trim(this, rowsToKeep, trimmingIndicator).getRows();
@@ -171,6 +172,8 @@ public class Table extends MarkdownElement {
      *
      * @param table      Table to remove {@link TableRow}s from
      * @param rowsToKeep Amount of {@link TableRow}s that should not be removed
+     * @param trimmingIndicator The content that trimmed cells should be filled with
+     * @return The trimmed table
      */
     public static Table trim(Table table, int rowsToKeep, String trimmingIndicator) {
         if (table.getRows().size() <= rowsToKeep) {
