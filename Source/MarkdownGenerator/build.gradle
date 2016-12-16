@@ -1,36 +1,26 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+}
+
 plugins {
     id "com.jfrog.bintray" version "1.7.3"
 }
 
-apply plugin: 'java'
-apply plugin: 'maven'
-apply plugin: 'maven-publish'
-apply plugin: 'java'
+allprojects {
+    repositories {
+        jcenter()
+        mavenCentral()
+    }
+    apply plugin: 'java'
+    apply plugin: 'maven'
+    apply plugin: 'maven-publish'
+    apply plugin: 'java'
+}
 
 group 'net.steppschuh.markdowngenerator'
-version = '1.0'
-
-repositories {
-    mavenCentral()
-}
-
-bintray {
-    user = project.hasProperty('bintrayUser') ? project.property('bintrayUser') : System.getenv('BINTRAY_USER')
-    key = project.hasProperty('bintrayApiKey') ? project.property('bintrayApiKey') : System.getenv('BINTRAY_API_KEY')
-    publications = ['MyPublication']
-    pkg {
-        repo = 'generic'
-        name = 'Markdown Generator'
-        licenses = ['Apache-2.0']
-        vcsUrl = 'https://github.com/Steppschuh/Java-Markdown-Generator.git'
-        version {
-            name = '1.0'
-            desc = 'Markdown Generator 1.0'
-            released = new Date()
-            vcsTag = '1.0.0'
-        }
-    }
-}
+version = '1.1'
 
 def pomConfig = {
     licenses {
@@ -57,7 +47,7 @@ publishing {
             artifact javadocJar
             groupId 'net.steppschuh.markdowngenerator'
             artifactId 'markdowngenerator'
-            version '1.0'
+            version '1.1'
             pom.withXml {
                 def root = asNode()
                 root.appendNode('description', 'Java library to generate markdown')
@@ -66,6 +56,28 @@ publishing {
                 root.children().last() + pomConfig
             }
         }
+    }
+}
+
+bintray {
+    user = project.hasProperty('bintrayUser') ? project.property('bintrayUser') : System.getenv('BINTRAY_USER')
+    key = project.hasProperty('bintrayApiKey') ? project.property('bintrayApiKey') : System.getenv('BINTRAY_API_KEY')
+    publications = ['MyPublication']
+    pkg {
+        repo = 'Markdown-Generator'
+        name = 'Markdown-Generator'
+        licenses = ['Apache-2.0']
+        vcsUrl = 'https://github.com/Steppschuh/Java-Markdown-Generator.git'
+        version {
+            name = '1.1'
+            desc = 'Markdown Generator 1.1'
+            released = new Date()
+            vcsTag = '1.1.0'
+        }
+    }
+    filesSpec {
+        from 'build/libs'
+        into 'libs/'
     }
 }
 
