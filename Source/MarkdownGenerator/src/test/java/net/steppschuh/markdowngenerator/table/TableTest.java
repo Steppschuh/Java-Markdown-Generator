@@ -44,4 +44,18 @@ public class TableTest {
         System.out.println(table);
     }
 
+    @Test
+    public void example2() throws Exception {
+        Table.Builder tableBuilder = new Table.Builder()
+                .withAlignments(Table.ALIGN_RIGHT, Table.ALIGN_LEFT)
+                .withRowLimit(10)
+                .addRow("Index", "Boolean");
+
+        for (int i = 1; i <= 20; i++) {
+            tableBuilder.addRow(i, Math.random() > 0.5);
+        }
+
+        System.out.println(tableBuilder.build());
+    }
+
 }

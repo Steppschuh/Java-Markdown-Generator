@@ -4,15 +4,19 @@ import net.steppschuh.markdowngenerator.MarkdownElement;
 import net.steppschuh.markdowngenerator.util.StringUtil;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static net.steppschuh.markdowngenerator.util.StringUtil.surroundValueWith;
 
 public class Table extends MarkdownElement {
 
     public static final String SEPERATOR = "|";
     public static final String WHITESPACE = " ";
-    public static final String TRIMMING_INDICATOR = "~~~";
+    public static final String TRIMMING_INDICATOR = "~";
 
     public static final int ALIGN_CENTER = 1;
     public static final int ALIGN_LEFT = 2;
@@ -22,6 +26,64 @@ public class Table extends MarkdownElement {
     private List<Integer> alignments;
     private boolean firstRowIsHeader;
     private int minimumColumnWidth = 3;
+    private String trimmingIndicator = TRIMMING_INDICATOR;
+
+    public static class Builder {
+
+        private Table table;
+        private int rowLimit;
+
+        public Builder() {
+            table = new Table();
+        }
+
+        public Builder withRows(List<TableRow> tableRows) {
+            table.setRows(tableRows);
+            return this;
+        }
+
+        public Builder addRow(TableRow tableRow) {
+            table.getRows().add(tableRow);
+            return this;
+        }
+
+        public Builder addRow(Object... objects) {
+            TableRow tableRow = new TableRow(Arrays.asList(objects));
+            table.getRows().add(tableRow);
+            return this;
+        }
+
+        public Builder withAlignments(List<Integer> alignments) {
+            table.setAlignments(alignments);
+            return this;
+        }
+
+        public Builder withAlignments(Integer... alignments) {
+            return withAlignments(Arrays.asList(alignments));
+        }
+
+        public Builder withAlignment(int alignment) {
+            return withAlignments(Collections.singletonList(alignment));
+        }
+
+        public Builder withRowLimit(int rowLimit) {
+            this.rowLimit = rowLimit;
+            return this;
+        }
+
+        public Builder withTrimmingIndicator(String trimmingIndicator) {
+            table.setTrimmingIndicator(trimmingIndicator);
+            return this;
+        }
+
+        public Table build() {
+            if (rowLimit > 0) {
+                table.trim(rowLimit);
+            }
+            return table;
+        }
+
+    }
 
     public Table() {
         this.rows = new ArrayList<>();
@@ -62,19 +124,15 @@ public class Table extends MarkdownElement {
                     value = "";
                 }
 
-                value = StringUtil.surroundValueWith(value, WHITESPACE);
-
-                /*
-                boolean isTrimmingIndicator = TRIMMING_INDICATOR.equals(value);
-                if (isTrimmingIndicator) {
-                    value = WHITESPACE;
-                } else {
+                if (TRIMMING_INDICATOR.equals(value)) {
+                    value = StringUtil.fillUpLeftAligned(value, TRIMMING_INDICATOR, columnWidths.get(columnIndex));
                     value = surroundValueWith(value, WHITESPACE);
+                } else {
+                    int alignment = getAlignment(alignments, columnIndex);
+                    value = surroundValueWith(value, WHITESPACE);
+                    value = StringUtil.fillUpAligned(value, WHITESPACE, columnWidths.get(columnIndex) + 2, alignment);
                 }
-                */
 
-                int alignment = getAlignment(alignments, columnIndex);
-                value = StringUtil.fillUpAligned(value, WHITESPACE, columnWidths.get(columnIndex) + 2, alignment);
                 sb.append(value);
 
                 if (columnIndex == row.getColumns().size() - 1) {
@@ -101,7 +159,7 @@ public class Table extends MarkdownElement {
      * @param rowsToKeep Amount of {@link TableRow}s that should not be removed
      */
     public Table trim(int rowsToKeep) {
-        rows = trim(this, rowsToKeep).getRows();
+        rows = trim(this, rowsToKeep, trimmingIndicator).getRows();
         return this;
     }
 
@@ -112,7 +170,7 @@ public class Table extends MarkdownElement {
      * @param table      Table to remove {@link TableRow}s from
      * @param rowsToKeep Amount of {@link TableRow}s that should not be removed
      */
-    public static Table trim(Table table, int rowsToKeep) {
+    public static Table trim(Table table, int rowsToKeep, String trimmingIndicator) {
         if (table.getRows().size() <= rowsToKeep) {
             return table;
         }
@@ -130,7 +188,7 @@ public class Table extends MarkdownElement {
 
         TableRow trimmingIndicatorRow = new TableRow();
         for (int columnIndex = 0; columnIndex < table.getRows().get(0).getColumns().size(); columnIndex++) {
-            trimmingIndicatorRow.getColumns().add(TRIMMING_INDICATOR);
+            trimmingIndicatorRow.getColumns().add(trimmingIndicator);
         }
         table.getRows().add(trimmingStartIndex, trimmingIndicatorRow);
 
@@ -155,7 +213,7 @@ public class Table extends MarkdownElement {
                     break;
                 }
                 default: {
-                    value = StringUtil.surroundValueWith(value, WHITESPACE);
+                    value = surroundValueWith(value, WHITESPACE);
                     break;
                 }
             }
@@ -192,8 +250,11 @@ public class Table extends MarkdownElement {
     }
 
     public static int getAlignment(List<Integer> alignments, int columnIndex) {
-        if (columnIndex >= alignments.size()) {
+        if (alignments.isEmpty()) {
             return ALIGN_LEFT;
+        }
+        if (columnIndex >= alignments.size()) {
+            columnIndex = alignments.size() - 1;
         }
         return alignments.get(columnIndex);
     }
@@ -232,5 +293,13 @@ public class Table extends MarkdownElement {
     public void setMinimumColumnWidth(int minimumColumnWidth) {
         this.minimumColumnWidth = minimumColumnWidth;
         invalidateSerialized();
+    }
+
+    public String getTrimmingIndicator() {
+        return trimmingIndicator;
+    }
+
+    public void setTrimmingIndicator(String trimmingIndicator) {
+        this.trimmingIndicator = trimmingIndicator;
     }
 }
