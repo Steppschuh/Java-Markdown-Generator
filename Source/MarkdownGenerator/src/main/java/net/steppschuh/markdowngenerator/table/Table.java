@@ -245,7 +245,7 @@ public class Table extends MarkdownElement {
     public static int getMaximumItemLength(List<TableRow> rows, int columnIndex, int minimumColumnWidth) {
         int maximum = minimumColumnWidth;
         for (TableRow row : rows) {
-            if (row.getColumns().size() < columnIndex - 1) {
+            if (row.getColumns().size() < columnIndex + 1) {
                 continue;
             }
             Object value = row.getColumns().get(columnIndex);
