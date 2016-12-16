@@ -16,7 +16,8 @@ public class Table extends MarkdownElement {
 
     public static final String SEPERATOR = "|";
     public static final String WHITESPACE = " ";
-    public static final String TRIMMING_INDICATOR = "~";
+    public static final String DEFAULT_TRIMMING_INDICATOR = "~";
+    public static final int DEFAULT_MINIMUM_COLUMN_WIDTH = 3;
 
     public static final int ALIGN_CENTER = 1;
     public static final int ALIGN_LEFT = 2;
@@ -24,9 +25,9 @@ public class Table extends MarkdownElement {
 
     private List<TableRow> rows;
     private List<Integer> alignments;
-    private boolean firstRowIsHeader;
-    private int minimumColumnWidth = 3;
-    private String trimmingIndicator = TRIMMING_INDICATOR;
+    private boolean firstRowIsHeader = true;
+    private int minimumColumnWidth = DEFAULT_MINIMUM_COLUMN_WIDTH;
+    private String trimmingIndicator = DEFAULT_TRIMMING_INDICATOR;
 
     public static class Builder {
 
@@ -117,15 +118,16 @@ public class Table extends MarkdownElement {
             for (int columnIndex = 0; columnIndex < columnWidths.size(); columnIndex++) {
                 sb.append(SEPERATOR);
 
-                String value;
+                String value = "";
                 if (row.getColumns().size() > columnIndex) {
-                    value = row.getColumns().get(columnIndex).toString();
-                } else {
-                    value = "";
+                    Object valueObject = row.getColumns().get(columnIndex);
+                    if (valueObject != null) {
+                        value = valueObject.toString();
+                    }
                 }
 
-                if (TRIMMING_INDICATOR.equals(value)) {
-                    value = StringUtil.fillUpLeftAligned(value, TRIMMING_INDICATOR, columnWidths.get(columnIndex));
+                if (value.equals(trimmingIndicator)) {
+                    value = StringUtil.fillUpLeftAligned(value, trimmingIndicator, columnWidths.get(columnIndex));
                     value = surroundValueWith(value, WHITESPACE);
                 } else {
                     int alignment = getAlignment(alignments, columnIndex);
@@ -243,8 +245,11 @@ public class Table extends MarkdownElement {
             if (row.getColumns().size() < columnIndex - 1) {
                 continue;
             }
-            String value = row.getColumns().get(columnIndex).toString();
-            maximum = Math.max(value.length(), maximum);
+            Object value = row.getColumns().get(columnIndex);
+            if (value == null) {
+                continue;
+            }
+            maximum = Math.max(value.toString().length(), maximum);
         }
         return maximum;
     }
