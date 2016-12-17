@@ -82,6 +82,53 @@ Heading with level 2
 ###### Heading with level 6
 ```
 
+### Rules
+```java
+@Test
+public void example() throws Exception {
+    System.out.println(new HorizontalRule());
+    System.out.println(new HorizontalRule(20, HorizontalRule.ASTERISK));
+}
+```
+**Output:**
+```
+---
+********************
+```
+
+### Images
+```java
+@Test
+public void example() throws Exception {
+    String text = "I am an image";
+    String url = "https://dummyimage.com/300";
+    System.out.println(new Image(text, url));
+}
+```
+**Output:**
+```
+![I am an image](https://dummyimage.com/300)
+```
+
+### Lists
+```java
+@Test
+public void example() throws Exception {
+    List<Object> items = Arrays.asList(
+            "Items can be anything",
+            new Date(0),
+            1337
+    );
+    System.out.println(new UnorderedList<>(items));
+}
+```
+**Output:**
+```
+- Items can be anything
+- Thu Jan 01 01:00:00 CET 1970
+- 1337
+```
+
 ### Tables
 ```java
 @Test
@@ -111,20 +158,6 @@ public void example() throws Exception {
 |    20 | false   |
 ```
 
-### Images
-```java
-@Test
-public void example() throws Exception {
-    String text = "I am an image";
-    String url = "https://dummyimage.com/300";
-    System.out.println(new Image(text, url));
-}
-```
-**Output:**
-```
-![I am an image](https://dummyimage.com/300)
-```
-
 ### Code
 ```java
 @Test
@@ -141,18 +174,4 @@ public void example() throws Exception {
     // notice this new line
     System.out.println("Hello");
     ```
-```
-
-### Rules
-```java
-@Test
-public void example() throws Exception {
-    System.out.println(new HorizontalRule());
-    System.out.println(new HorizontalRule(20, HorizontalRule.ASTERISK));
-}
-```
-**Output:**
-```
----
-********************
 ```
