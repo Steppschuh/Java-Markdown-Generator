@@ -17,7 +17,7 @@ public class CodeTextBlockTest {
     @Test
     public void example2() throws Exception {
         String code = "// notice this new line\n" +
-                "System.out.println(\"I am a code block with syntax highlighting\");";
+                "System.out.println(\"Hello\");";
         Text text = new CodeTextBlock(code, "Java");
         System.out.println(text);
     }

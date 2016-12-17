@@ -48,7 +48,7 @@ public class TableTest {
     public void example2() throws Exception {
         Table.Builder tableBuilder = new Table.Builder()
                 .withAlignments(Table.ALIGN_RIGHT, Table.ALIGN_LEFT)
-                .withRowLimit(10)
+                .withRowLimit(7)
                 .addRow("Index", "Boolean");
 
         for (int i = 1; i <= 20; i++) {

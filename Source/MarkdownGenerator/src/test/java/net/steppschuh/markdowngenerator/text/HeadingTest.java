@@ -21,4 +21,17 @@ public class HeadingTest {
         }
     }
 
+    @Test
+    public void example3() throws Exception {
+        StringBuilder sb = new StringBuilder()
+                .append(new Heading("Heading with level 1", 1)).append("\n")
+                .append(new Heading("Heading with level 2", 2)).append("\n")
+                .append(new Heading("Heading with level 3", 3)).append("\n")
+                .append(new Heading("Heading with level 4", 4)).append("\n")
+                .append(new Heading("Heading with level 5", 5)).append("\n")
+                .append(new Heading("Heading with level 6", 6));
+
+        System.out.println(sb);
+    }
+
 }
