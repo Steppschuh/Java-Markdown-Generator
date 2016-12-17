@@ -1,2 +1,2 @@
 language: java
-before_script: cd Source\MarkdownGenerator
+before_script: cd Source/MarkdownGenerator
