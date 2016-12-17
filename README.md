@@ -1,5 +1,5 @@
 # Java Markdown Generator
-Java library to generate beautiful markdown.
+Simple to use Java library to generate beautiful markdown.
 
 ![Screenshot](https://github.com/Steppschuh/Java-Markdown-Generator/blob/dev/Media/code_table_output.png)
 
@@ -44,7 +44,7 @@ public void example() throws Exception {
             .append(new ItalicText("I am italic")).append("\n")
             .append(new StrikeThroughText("I am strike-through"));
 
-    System.out.println(sb.toString());
+    System.out.println(sb);
 }
 ```
 **Output:**
@@ -53,6 +53,33 @@ I am normal
 **I am bold**
 _I am italic_
 ~~I am strike-through~~
+```
+
+### Headings
+```java
+@Test
+public void example() throws Exception {
+    StringBuilder sb = new StringBuilder()
+            .append(new Heading("Heading with level 1", 1)).append("\n")
+            .append(new Heading("Heading with level 2", 2)).append("\n")
+            .append(new Heading("Heading with level 3", 3)).append("\n")
+            .append(new Heading("Heading with level 4", 4)).append("\n")
+            .append(new Heading("Heading with level 5", 5)).append("\n")
+            .append(new Heading("Heading with level 6", 6));
+
+    System.out.println(sb);
+}
+```
+**Output:**
+```
+Heading with level 1
+====================
+Heading with level 2
+--------------------
+### Heading with level 3
+#### Heading with level 4
+##### Heading with level 5
+###### Heading with level 6
 ```
 
 ### Tables
@@ -97,6 +124,7 @@ public void example() throws Exception {
 ```
 ![I am an image](https://dummyimage.com/300)
 ```
+
 ### Code
 ```java
 @Test
@@ -113,4 +141,18 @@ public void example() throws Exception {
     // notice this new line
     System.out.println("Hello");
     ```
+```
+
+### Rules
+```java
+@Test
+public void example() throws Exception {
+    System.out.println(new HorizontalRule());
+    System.out.println(new HorizontalRule(20, HorizontalRule.ASTERISK));
+}
+```
+**Output:**
+```
+---
+********************
 ```
