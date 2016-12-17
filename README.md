@@ -1,4 +1,6 @@
 # Java Markdown Generator
+[ ![Download](https://api.bintray.com/packages/steppschuh/Markdown-Generator/Markdown-Generator/images/download.svg) ](https://bintray.com/steppschuh/Markdown-Generator/Markdown-Generator/_latestVersion)
+
 Simple to use Java library to generate beautiful markdown.
 
 ![Screenshot](https://github.com/Steppschuh/Java-Markdown-Generator/blob/dev/Media/code_table_output.png)
