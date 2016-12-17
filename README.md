@@ -166,8 +166,7 @@ public void example() throws Exception {
 public void example() throws Exception {
     String code = "// notice this new line\n" +
             "System.out.println(\"Hello\");";
-    Text text = new CodeTextBlock(code, "Java");
-    System.out.println(text);
+    System.out.println(new CodeTextBlock(code, "Java"));
 }
 ```
 **Output:**
