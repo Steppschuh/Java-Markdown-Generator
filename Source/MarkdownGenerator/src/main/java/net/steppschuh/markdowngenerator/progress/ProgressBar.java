@@ -57,7 +57,9 @@ public class ProgressBar extends MarkdownElement {
         }
         sb.append(closingChar);
         if (appendValue) {
-            sb.append(" ").append(getReadableValue(value));
+            String readableValue = getReadableValue(value);
+            readableValue = StringUtil.fillUpRightAligned(readableValue, " ", 7);
+            sb.append(" ").append(readableValue);
         }
         if (appendPercentage) {
             String readablePercentage = getReadablePercentage(value, minimumValue, maximumValue);
@@ -76,7 +78,7 @@ public class ProgressBar extends MarkdownElement {
     }
 
     public static String getReadableValue(double value) {
-        if (value > 1) {
+        if (value >= 1 || value == 0) {
             return String.valueOf(value);
         } else {
             return String.format("%.4f", value);
