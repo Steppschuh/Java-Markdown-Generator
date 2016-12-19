@@ -1,5 +1,5 @@
 # Java Markdown Generator
-[![Build Status](https://travis-ci.org/Steppschuh/Java-Markdown-Generator.png)](https://travis-ci.org/Steppschuh/Java-Markdown-Generator/) [![Download](https://api.bintray.com/packages/steppschuh/Markdown-Generator/Markdown-Generator/images/download.svg) ](https://bintray.com/steppschuh/Markdown-Generator/Markdown-Generator/_latestVersion)
+[![Travis](https://img.shields.io/travis/Steppschuh/Java-Markdown-Generator.svg)](https://travis-ci.org/Steppschuh/Java-Markdown-Generator/) [![Bintray](https://img.shields.io/bintray/v/steppschuh/Markdown-Generator/Markdown-Generator.svg)](https://bintray.com/steppschuh/Markdown-Generator/Markdown-Generator/_latestVersion) [![Maven Central](https://img.shields.io/maven-central/v/net.steppschuh.markdowngenerator/markdowngenerator.svg)](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22net.steppschuh.markdowngenerator%22)
 
 Simple to use Java library to generate beautiful markdown.
 
@@ -17,7 +17,7 @@ repositories {
     }
 }
 dependencies {
-    compile 'net.steppschuh.markdowngenerator:markdowngenerator:1.1'
+    compile 'net.steppschuh.markdowngenerator:markdowngenerator:1.2'
 }
 ```
 
@@ -26,7 +26,7 @@ dependencies {
 <dependency>
   <groupId>net.steppschuh.markdowngenerator</groupId>
   <artifactId>markdowngenerator</artifactId>
-  <version>1.1</version>
+  <version>1.2</version>
   <type>pom</type>
 </dependency>
 ```
