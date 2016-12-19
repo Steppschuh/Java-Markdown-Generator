@@ -37,6 +37,11 @@ def pomConfig = {
             email "contact@steppschuh.net"
         }
     }
+    scm {
+        connection 'https://github.com/Steppschuh/Java-Markdown-Generator.git'
+        developerConnection 'https://github.com/Steppschuh/Java-Markdown-Generator.git'
+        url "https://github.com/Steppschuh/Java-Markdown-Generator.git"
+    }
 }
 
 publishing {
