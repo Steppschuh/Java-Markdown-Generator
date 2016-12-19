@@ -20,7 +20,7 @@ allprojects {
 }
 
 group 'net.steppschuh.markdowngenerator'
-version = '1.1'
+version = '1.2'
 
 def pomConfig = {
     licenses {
@@ -47,7 +47,7 @@ publishing {
             artifact javadocJar
             groupId 'net.steppschuh.markdowngenerator'
             artifactId 'markdowngenerator'
-            version '1.1'
+            version '1.2'
             pom.withXml {
                 def root = asNode()
                 root.appendNode('description', 'Java library to generate markdown')
@@ -67,12 +67,25 @@ bintray {
         repo = 'Markdown-Generator'
         name = 'Markdown-Generator'
         licenses = ['Apache-2.0']
+        labels = ['Markdown', 'Serialization']
         vcsUrl = 'https://github.com/Steppschuh/Java-Markdown-Generator.git'
+        websiteUrl = 'https://github.com/Steppschuh/Java-Markdown-Generator'
+        githubRepo = 'Steppschuh/Java-Markdown-Generator'
+        githubReleaseNotesFile = 'README.md'
         version {
-            name = '1.1'
-            desc = 'Markdown Generator 1.1'
+            name = '1.2'
+            desc = 'Markdown Generator 1.2'
             released = new Date()
-            vcsTag = '1.1.0'
+            vcsTag = '1.2.0'
+            gpg {
+                sign = true
+            }
+            mavenCentralSync {
+                sync = true
+                user = project.hasProperty('mavenCentralUser') ? project.property('mavenCentralUser') : System.getenv('MAVEN_CENTRAL_USER')
+                password = project.hasProperty('mavenCentralPassword') ? project.property('mavenCentralPassword') : System.getenv('MAVEN_CENTRAL_PASSWORD')
+                close = '1'
+            }
         }
     }
     filesSpec {
