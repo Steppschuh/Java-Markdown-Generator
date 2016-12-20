@@ -36,11 +36,14 @@ public class ProgressBarTest {
         ProgressBar progressBar = new ProgressBar(0, ProgressBar.LENGTH_LARGE);
         progressBar.setFillChar('#');
         progressBar.setEmptyChar(' ');
+        progressBar.setOpeningChar(' ');
+        progressBar.setClosingChar(' ');
 
         for (int i = 0; i <= 20; i++) {
-            progressBar.setValue(1 - (Math.pow(i - 15, 2) * 0.003) - Math.pow((i - 2) * 0.05, 3));
-            String value = Math.round(progressBar.getValue() * 100) + "%";
-            tableBuilder.addRow((i + 1), value, progressBar.toString());
+            progressBar.setValue(0.1 * (Math.sin(i) + Math.pow(i, 1.3) - (1.3 * Math.pow(i, 1.2))) + 0.3);
+            String percentage = Math.round(progressBar.getValue() * 100) + "%";
+            String visualization = progressBar.toString().replace(progressBar.getEmptyChar() + "", "");
+            tableBuilder.addRow((i + 1), percentage, visualization);
         }
 
         System.out.println(tableBuilder.build());
