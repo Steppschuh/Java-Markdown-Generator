@@ -17,7 +17,7 @@ repositories {
     }
 }
 dependencies {
-    compile 'net.steppschuh.markdowngenerator:markdowngenerator:1.2'
+    compile 'net.steppschuh.markdowngenerator:markdowngenerator:1.2.1'
 }
 ```
 
@@ -26,7 +26,7 @@ dependencies {
 <dependency>
   <groupId>net.steppschuh.markdowngenerator</groupId>
   <artifactId>markdowngenerator</artifactId>
-  <version>1.2</version>
+  <version>1.2.1</version>
   <type>pom</type>
 </dependency>
 ```

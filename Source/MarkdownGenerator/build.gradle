@@ -21,7 +21,7 @@ allprojects {
 }
 
 group 'net.steppschuh.markdowngenerator'
-version = '1.2'
+version = '1.2.1'
 
 sourceCompatibility = 1.7
 targetCompatibility = 1.7
@@ -56,7 +56,7 @@ publishing {
             artifact javadocJar
             groupId 'net.steppschuh.markdowngenerator'
             artifactId 'markdowngenerator'
-            version '1.2'
+            version '1.2.1'
             pom.withXml {
                 def root = asNode()
                 root.appendNode('description', 'Java library to generate markdown')
@@ -82,10 +82,10 @@ bintray {
         githubRepo = 'Steppschuh/Java-Markdown-Generator'
         githubReleaseNotesFile = 'README.md'
         version {
-            name = '1.2'
-            desc = 'Markdown Generator 1.2'
+            name = '1.2.1'
+            desc = 'Markdown Generator 1.2.1'
             released = new Date()
-            vcsTag = '1.2.0'
+            vcsTag = '1.2.1'
             gpg {
                 sign = true
             }
