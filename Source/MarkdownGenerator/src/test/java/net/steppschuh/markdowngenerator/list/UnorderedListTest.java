@@ -29,4 +29,30 @@ public class UnorderedListTest {
         System.out.println(list);
     }
 
+    @Test
+    public void example3() throws Exception {
+        List<Object> items = Arrays.asList(
+                "Item 1",
+                "Item 2",
+                new UnorderedList<>(Arrays.asList(
+                        "Item 2.1",
+                        "Item 2.2",
+                        new UnorderedList<>(Arrays.asList(
+                                "Item 2.2.1",
+                                "Item 2.2.2",
+                                new UnorderedList<>(Arrays.asList(
+                                        "Item 2.2.2.1",
+                                        "Item 2.2.2.2",
+                                        "Item 2.2.2.3"
+                                )),
+                                "Item 2.2.3"
+                        )),
+                        "Item 2.3"
+                )),
+                "Item 3"
+        );
+        UnorderedList list = new UnorderedList<>(items);
+        System.out.println(list);
+    }
+
 }

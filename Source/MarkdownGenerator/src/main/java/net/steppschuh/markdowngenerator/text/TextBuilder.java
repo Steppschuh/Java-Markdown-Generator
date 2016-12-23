@@ -1,6 +1,6 @@
-package net.steppschuh.markdowngenerator;
+package net.steppschuh.markdowngenerator.text;
 
-import net.steppschuh.markdowngenerator.text.Text;
+import net.steppschuh.markdowngenerator.MarkdownBuilder;
 
 /**
  * Created by steppschuh on 23/12/2016.

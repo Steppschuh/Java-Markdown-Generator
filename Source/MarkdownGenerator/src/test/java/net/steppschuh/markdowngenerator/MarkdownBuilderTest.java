@@ -1,6 +1,7 @@
 package net.steppschuh.markdowngenerator;
 
 import net.steppschuh.markdowngenerator.list.ListBuilder;
+import net.steppschuh.markdowngenerator.text.TextBuilder;
 
 import org.junit.Test;
 
@@ -24,6 +25,26 @@ public class MarkdownBuilderTest {
                 .end()
                 .newParagraph()
                 .append("Over.");
+
+        System.out.println(builder.toString());
+    }
+
+    @Test
+    public void example2() throws Exception {
+        MarkdownBuilder builder = new ListBuilder()
+                .append("Item 1")
+                .append(bold("Item 2"))
+                .begin(ListBuilder.class)
+                    .append("Item 2.1")
+                    .append(bold("Item 2.2"))
+                    .begin(ListBuilder.class)
+                        .append("Item 2.2.1")
+                        .append(bold("Item 2.2.2"))
+                        .append("Item 2.2.3")
+                    .end()
+                    .append("Item 2.3")
+                .end()
+                .append("Item 3");
 
         System.out.println(builder.toString());
     }
