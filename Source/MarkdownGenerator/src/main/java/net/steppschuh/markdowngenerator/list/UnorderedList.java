@@ -8,7 +8,7 @@ import java.util.List;
 
 public class UnorderedList<T extends Object> extends MarkdownElement {
 
-    private List<T> items;
+    protected List<T> items;
 
     public UnorderedList() {
         this.items = new ArrayList<>();
