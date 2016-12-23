@@ -131,6 +131,25 @@ public void example() throws Exception {
 - 1337
 ```
 
+### Tasks
+```java
+@Test
+public void example() throws Exception {
+    List<TaskListItem> items = Arrays.asList(
+            new TaskListItem("Task 1", true),
+            new TaskListItem("Task 2", false),
+            new TaskListItem("Task 3")
+    );
+    System.out.println(new TaskList(items));
+}
+```
+**Output:**
+```
+- [x] Task 1
+- [ ] Task 2
+- [ ] Task 3
+```
+
 ### Tables
 ```java
 @Test
