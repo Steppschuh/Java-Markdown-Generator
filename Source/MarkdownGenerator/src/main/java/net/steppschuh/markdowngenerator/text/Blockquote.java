@@ -27,4 +27,5 @@ public class Blockquote extends Text {
         }
         return sb.toString();
     }
+
 }

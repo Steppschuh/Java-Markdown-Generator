@@ -1,7 +1,5 @@
 package net.steppschuh.markdowngenerator.text;
 
-import net.steppschuh.markdowngenerator.MarkdownSerializationException;
-
 public class CodeTextBlock extends Text {
 
     private String language;
@@ -16,21 +14,13 @@ public class CodeTextBlock extends Text {
     }
 
     @Override
-    public String serialize() throws MarkdownSerializationException {
-        if (value == null) {
-            throw new MarkdownSerializationException("Value is null");
-        }
-        return getPredecessor() + language + "\n" + value.toString() + "\n" + getSuccessor();
+    public String getPredecessor() {
+        return "```" + language + "\n";
     }
 
     @Override
-    protected String getPredecessor() {
-        return "```";
-    }
-
-    @Override
-    protected String getSuccessor() {
-        return getPredecessor();
+    public String getSuccessor() {
+        return "\n```";
     }
 
     public String getLanguage() {

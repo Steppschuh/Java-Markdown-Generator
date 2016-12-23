@@ -7,13 +7,8 @@ public class ItalicText extends Text {
     }
 
     @Override
-    protected String getPredecessor() {
+    public String getPredecessor() {
         return "_";
-    }
-
-    @Override
-    protected String getSuccessor() {
-        return getPredecessor();
     }
 
 }

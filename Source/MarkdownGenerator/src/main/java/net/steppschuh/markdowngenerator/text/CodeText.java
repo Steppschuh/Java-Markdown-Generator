@@ -7,13 +7,8 @@ public class CodeText extends Text {
     }
 
     @Override
-    protected String getPredecessor() {
+    public String getPredecessor() {
         return "`";
-    }
-
-    @Override
-    protected String getSuccessor() {
-        return getPredecessor();
     }
 
 }
