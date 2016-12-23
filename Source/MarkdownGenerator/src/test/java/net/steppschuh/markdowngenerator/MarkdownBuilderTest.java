@@ -1,9 +1,10 @@
 package net.steppschuh.markdowngenerator;
 
+import net.steppschuh.markdowngenerator.list.ListBuilder;
+
 import org.junit.Test;
 
 import static net.steppschuh.markdowngenerator.Markdown.bold;
-import static net.steppschuh.markdowngenerator.Markdown.codeBlock;
 import static net.steppschuh.markdowngenerator.Markdown.italic;
 
 /**
@@ -13,13 +14,13 @@ public class MarkdownBuilderTest {
 
     @Test
     public void example1() throws Exception {
-        Markdown.Builder builder = new Markdown.Builder()
+        MarkdownBuilder builder = new TextBuilder()
                 .append("Demonstrating: ")
                 .append(bold("Bold Text"))
                 .newParagraph()
-                .begin(codeBlock("java"))
-                    .append("// dummy comment").newLine()
-                    .append(italic("dummyMethod(this);"))
+                .begin(ListBuilder.class)
+                .append("I should be an item")
+                .append(italic("I should be an italic item"))
                 .end()
                 .newParagraph()
                 .append("Over.");
