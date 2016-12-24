@@ -29,13 +29,7 @@ public abstract class MarkdownBuilder<T extends MarkdownBuilder<T, S>, S extends
         try {
             Constructor constructor = markdownClass.getConstructor(MarkdownBuilder.class);
             return (MarkdownBuilder) constructor.newInstance(this);
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        } catch (NoSuchMethodException e) {
+        } catch (InstantiationException | NoSuchMethodException | InvocationTargetException | IllegalAccessException e) {
             e.printStackTrace();
         }
         return getBuilder();
@@ -78,11 +72,15 @@ public abstract class MarkdownBuilder<T extends MarkdownBuilder<T, S>, S extends
 
     @Override
     public String toString() {
-        return markdownElement.getSerialized(this.getClass().getSimpleName());
+        return build().getSerialized(this.getClass().getSimpleName());
     }
 
     @Override
     public MarkdownElement toMarkdownElement() throws MarkdownSerializationException {
+        return build();
+    }
+
+    public S build() {
         return markdownElement;
     }
 
