@@ -1,5 +1,7 @@
 package net.steppschuh.markdowngenerator;
 
+import net.steppschuh.markdowngenerator.list.ListBuilder;
+
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
@@ -25,7 +27,7 @@ public abstract class MarkdownBuilder<T extends MarkdownBuilder<T, S>, S extends
 
     protected abstract S createMarkdownElement();
 
-    public MarkdownBuilder begin(Class<? extends MarkdownBuilder> markdownClass) {
+    protected MarkdownBuilder begin(Class<? extends MarkdownBuilder> markdownClass) {
         try {
             Constructor constructor = markdownClass.getConstructor(MarkdownBuilder.class);
             return (MarkdownBuilder) constructor.newInstance(this);
@@ -33,6 +35,15 @@ public abstract class MarkdownBuilder<T extends MarkdownBuilder<T, S>, S extends
             e.printStackTrace();
         }
         return getBuilder();
+    }
+
+    public MarkdownBuilder begin(MarkdownBuilder markdownBuilder) {
+        markdownBuilder.setParentBuilder(this);
+        return markdownBuilder;
+    }
+
+    public ListBuilder beginList() {
+        return new ListBuilder(this);
     }
 
     public MarkdownBuilder end() {
@@ -82,6 +93,14 @@ public abstract class MarkdownBuilder<T extends MarkdownBuilder<T, S>, S extends
 
     public S build() {
         return markdownElement;
+    }
+
+    public MarkdownBuilder getParentBuilder() {
+        return parentBuilder;
+    }
+
+    public void setParentBuilder(MarkdownBuilder parentBuilder) {
+        this.parentBuilder = parentBuilder;
     }
 
 }
