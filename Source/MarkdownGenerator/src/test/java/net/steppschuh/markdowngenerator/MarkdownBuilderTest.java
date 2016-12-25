@@ -24,6 +24,12 @@ public class MarkdownBuilderTest {
                     .append(italic("I should be an italic item"))
                 .end()
                 .newParagraph()
+                .beginBlockQuote()
+                    .append("I should be a quote")
+                    .newLine()
+                    .append("I should still be a quote")
+                .end()
+                .newParagraph()
                 .append("Over.");
 
         System.out.println(builder.toString());

@@ -1,10 +1,15 @@
 package net.steppschuh.markdowngenerator;
 
+import net.steppschuh.markdowngenerator.image.Image;
+import net.steppschuh.markdowngenerator.link.Link;
+import net.steppschuh.markdowngenerator.progress.ProgressBar;
+import net.steppschuh.markdowngenerator.rule.HorizontalRule;
 import net.steppschuh.markdowngenerator.text.BoldText;
 import net.steppschuh.markdowngenerator.text.CodeText;
 import net.steppschuh.markdowngenerator.text.CodeTextBlock;
 import net.steppschuh.markdowngenerator.text.Heading;
 import net.steppschuh.markdowngenerator.text.ItalicText;
+import net.steppschuh.markdowngenerator.text.StrikeThroughText;
 import net.steppschuh.markdowngenerator.text.Text;
 
 /**
@@ -27,6 +32,16 @@ public abstract class Markdown {
         return heading(value, 2);
     }
 
+    // Rule
+
+    public static HorizontalRule rule() {
+        return new HorizontalRule();
+    }
+
+    public static HorizontalRule rule(int length) {
+        return new HorizontalRule(length);
+    }
+
     // Emphasis
 
     public static Text text(String value) {
@@ -41,6 +56,41 @@ public abstract class Markdown {
         return new ItalicText(value);
     }
 
+    public static StrikeThroughText strikeThrough(String value) {
+        return new StrikeThroughText(value);
+    }
+
+    // Link
+
+    public static Link link(String text, String url) {
+        return new Link(text, url);
+    }
+
+    public static Link link(String url) {
+        return new Link(url);
+    }
+
+    // Image
+
+    public static Image image(String text, String url) {
+        return new Image(text, url);
+    }
+
+    public static Image image(String url) {
+        return new Image(url);
+    }
+
+    // Progress
+
+    public static ProgressBar progress(double progress) {
+        return new ProgressBar(progress);
+    }
+
+    public static ProgressBar progressWithLabel(double progress) {
+        ProgressBar progressBar = new ProgressBar(progress);
+        progressBar.setAppendPercentage(true);
+        return progressBar;
+    }
 
     // Code
 
