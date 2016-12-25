@@ -4,7 +4,11 @@ import net.steppschuh.markdowngenerator.text.Text;
 
 public class CodeBlock extends Text {
 
-    private String language;
+    public static final String LANGUAGE_UNKNOWN = "";
+    public static final String LANGUAGE_JAVA = "java";
+    public static final String LANGUAGE_MARKDOWN = "markdown";
+
+    private String language = LANGUAGE_UNKNOWN;
 
     public CodeBlock(Object value) {
         this(value, "");

@@ -2,6 +2,7 @@ package net.steppschuh.markdowngenerator;
 
 import net.steppschuh.markdowngenerator.list.ListBuilder;
 import net.steppschuh.markdowngenerator.text.TextBuilder;
+import net.steppschuh.markdowngenerator.text.code.CodeBlock;
 
 import org.junit.Test;
 
@@ -25,9 +26,13 @@ public class MarkdownBuilderTest {
                 .end()
                 .newParagraph()
                 .beginQuote()
-                    .append("I should be a quote")
-                    .newLine()
+                    .append("I should be a quote").newLine()
                     .append("I should still be a quote")
+                .end()
+                .newParagraph()
+                .beginCodeBlock(CodeBlock.LANGUAGE_JAVA)
+                    .append("// I should be code").newLine()
+                    .append("dummyMethod(this);")
                 .end()
                 .newParagraph()
                 .append("Over.");

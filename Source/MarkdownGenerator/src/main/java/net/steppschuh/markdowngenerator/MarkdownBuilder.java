@@ -1,6 +1,8 @@
 package net.steppschuh.markdowngenerator;
 
 import net.steppschuh.markdowngenerator.list.ListBuilder;
+import net.steppschuh.markdowngenerator.text.code.CodeBlock;
+import net.steppschuh.markdowngenerator.text.code.CodeBlockBuilder;
 import net.steppschuh.markdowngenerator.text.quote.QuoteBuilder;
 
 import java.lang.reflect.Constructor;
@@ -48,6 +50,14 @@ public abstract class MarkdownBuilder<T extends MarkdownBuilder<T, S>, S extends
 
     public QuoteBuilder beginQuote() {
         return new QuoteBuilder(this);
+    }
+
+    public CodeBlockBuilder beginCodeBlock() {
+        return beginCodeBlock(CodeBlock.LANGUAGE_UNKNOWN);
+    }
+
+    public CodeBlockBuilder beginCodeBlock(String language) {
+        return new CodeBlockBuilder(this, language);
     }
 
     public MarkdownBuilder end() {
