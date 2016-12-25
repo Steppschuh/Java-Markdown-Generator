@@ -18,7 +18,6 @@ import net.steppschuh.markdowngenerator.text.emphasis.StrikeThroughText;
 import net.steppschuh.markdowngenerator.text.heading.Heading;
 import net.steppschuh.markdowngenerator.text.quote.Quote;
 import net.steppschuh.markdowngenerator.text.quote.QuoteBuilder;
-import net.steppschuh.markdowngenerator.util.StringUtil;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
@@ -60,20 +59,8 @@ public abstract class MarkdownBuilder<T extends MarkdownBuilder<T, S>, S extends
         return markdownBuilder;
     }
 
-    public ListBuilder beginList() {
-        return new ListBuilder(this);
-    }
-
-    public QuoteBuilder beginQuote() {
-        return new QuoteBuilder(this);
-    }
-
     public CodeBlockBuilder beginCodeBlock() {
         return beginCodeBlock(CodeBlock.LANGUAGE_UNKNOWN);
-    }
-
-    public CodeBlockBuilder beginCodeBlock(String language) {
-        return new CodeBlockBuilder(this, language);
     }
 
     public MarkdownBuilder end() {
@@ -166,6 +153,10 @@ public abstract class MarkdownBuilder<T extends MarkdownBuilder<T, S>, S extends
 
     // Quote
 
+    public QuoteBuilder beginQuote() {
+        return new QuoteBuilder(this);
+    }
+
     public T quote(String value) {
         newParagraphIfRequired();
         append(new Quote(value));
@@ -174,11 +165,19 @@ public abstract class MarkdownBuilder<T extends MarkdownBuilder<T, S>, S extends
 
     // Code
 
+    public CodeBlockBuilder beginCodeBlock(String language) {
+        return new CodeBlockBuilder(this, language);
+    }
+
     public T code(Object value) {
         return append(new Code(value));
     }
 
     // List
+
+    public ListBuilder beginList() {
+        return new ListBuilder(this);
+    }
 
     public T unorderedList(Object... items) {
         newLinesIfRequired(1);
