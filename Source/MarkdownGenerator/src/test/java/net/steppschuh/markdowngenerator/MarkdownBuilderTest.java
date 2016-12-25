@@ -17,6 +17,7 @@ public class MarkdownBuilderTest {
     @Test
     public void example1() throws Exception {
         MarkdownBuilder builder = new TextBuilder()
+                .heading("Markdown Builder")
                 .append("Demonstrating: ")
                 .append(bold("Bold Text"))
                 .newParagraph()
@@ -43,19 +44,41 @@ public class MarkdownBuilderTest {
     @Test
     public void example2() throws Exception {
         MarkdownBuilder builder = new ListBuilder()
-                .append("Item 1")
-                .append(bold("Item 2"))
+                .text("Item 1")
+                .bold("Item 2")
                 .beginList()
-                    .append("Item 2.1")
-                    .append(bold("Item 2.2"))
+                    .text("Item 2.1")
+                    .bold("Item 2.2")
                     .beginList()
-                        .append("Item 2.2.1")
-                        .append(bold("Item 2.2.2"))
-                        .append("Item 2.2.3")
+                        .text("Item 2.2.1")
+                        .bold("Item 2.2.2")
+                        .text("Item 2.2.3")
                     .end()
-                    .append("Item 2.3")
+                    .text("Item 2.3")
                 .end()
-                .append("Item 3");
+                .text("Item 3");
+
+        System.out.println(builder.toString());
+    }
+
+    @Test
+    public void example3() throws Exception {
+        MarkdownBuilder builder = new TextBuilder()
+                .heading("Markdown Builder")
+                .text("Demonstrating: ").bold("Bold Text")
+                .newParagraph()
+                .quote("I should be a quote\nI should still be a quote")
+                .code("// I should be code")
+                .subHeading("Lists")
+                .unorderedList(
+                        "I should be an item",
+                        Markdown.italic("I should be an italic item")
+                )
+                .taskList(
+                        Markdown.task("Task 1", true),
+                        Markdown.task("Task 2", false),
+                        Markdown.task("Task 3")
+                );
 
         System.out.println(builder.toString());
     }

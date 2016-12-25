@@ -2,16 +2,21 @@ package net.steppschuh.markdowngenerator;
 
 import net.steppschuh.markdowngenerator.image.Image;
 import net.steppschuh.markdowngenerator.link.Link;
+import net.steppschuh.markdowngenerator.list.TaskList;
+import net.steppschuh.markdowngenerator.list.TaskListItem;
+import net.steppschuh.markdowngenerator.list.UnorderedList;
 import net.steppschuh.markdowngenerator.progress.ProgressBar;
 import net.steppschuh.markdowngenerator.rule.HorizontalRule;
-import net.steppschuh.markdowngenerator.text.emphasis.BoldText;
+import net.steppschuh.markdowngenerator.text.Text;
 import net.steppschuh.markdowngenerator.text.code.Code;
 import net.steppschuh.markdowngenerator.text.code.CodeBlock;
-import net.steppschuh.markdowngenerator.text.heading.Heading;
+import net.steppschuh.markdowngenerator.text.emphasis.BoldText;
 import net.steppschuh.markdowngenerator.text.emphasis.ItalicText;
-import net.steppschuh.markdowngenerator.text.quote.Quote;
 import net.steppschuh.markdowngenerator.text.emphasis.StrikeThroughText;
-import net.steppschuh.markdowngenerator.text.Text;
+import net.steppschuh.markdowngenerator.text.heading.Heading;
+import net.steppschuh.markdowngenerator.text.quote.Quote;
+
+import java.util.Arrays;
 
 /**
  * Created by steppschuh on 23/12/2016.
@@ -111,6 +116,24 @@ public abstract class Markdown {
 
     public static CodeBlock codeBlock(String language) {
         return codeBlock(null, language);
+    }
+
+    // List
+
+    public static UnorderedList unorderedList(Object... items) {
+        return new UnorderedList(Arrays.asList(items));
+    }
+
+    public static TaskList taskList(TaskListItem... items) {
+        return new TaskList(Arrays.asList(items));
+    }
+
+    public static TaskListItem task(String value) {
+        return new TaskListItem(value);
+    }
+
+    public static TaskListItem task(String value, boolean checked) {
+        return new TaskListItem(value, checked);
     }
 
 }
