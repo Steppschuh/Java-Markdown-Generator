@@ -4,13 +4,13 @@ import net.steppschuh.markdowngenerator.image.Image;
 import net.steppschuh.markdowngenerator.link.Link;
 import net.steppschuh.markdowngenerator.progress.ProgressBar;
 import net.steppschuh.markdowngenerator.rule.HorizontalRule;
-import net.steppschuh.markdowngenerator.text.BoldText;
-import net.steppschuh.markdowngenerator.text.CodeText;
-import net.steppschuh.markdowngenerator.text.CodeTextBlock;
-import net.steppschuh.markdowngenerator.text.Heading;
-import net.steppschuh.markdowngenerator.text.ItalicText;
-import net.steppschuh.markdowngenerator.text.Quote;
-import net.steppschuh.markdowngenerator.text.StrikeThroughText;
+import net.steppschuh.markdowngenerator.text.emphasis.BoldText;
+import net.steppschuh.markdowngenerator.text.code.CodeText;
+import net.steppschuh.markdowngenerator.text.code.CodeTextBlock;
+import net.steppschuh.markdowngenerator.text.heading.Heading;
+import net.steppschuh.markdowngenerator.text.emphasis.ItalicText;
+import net.steppschuh.markdowngenerator.text.quote.Quote;
+import net.steppschuh.markdowngenerator.text.emphasis.StrikeThroughText;
 import net.steppschuh.markdowngenerator.text.Text;
 
 /**
@@ -21,15 +21,15 @@ public abstract class Markdown {
 
     // Heading
 
-    public static Text heading(String value, int level) {
+    public static Heading heading(String value, int level) {
         return new Heading(value, level);
     }
 
-    public static Text heading(String value) {
+    public static Heading heading(String value) {
         return heading(value, 1);
     }
 
-    public static Text subHeading(String value) {
+    public static Heading subHeading(String value) {
         return heading(value, 2);
     }
 

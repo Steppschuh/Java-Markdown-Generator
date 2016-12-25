@@ -1,15 +1,14 @@
 package net.steppschuh.markdowngenerator;
 
 import net.steppschuh.markdowngenerator.list.ListBuilder;
-import net.steppschuh.markdowngenerator.text.QuoteBuilder;
+import net.steppschuh.markdowngenerator.text.quote.QuoteBuilder;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
 /**
- * Created by steppschuh on 23/12/2016.
+ * Base class that every markdown builder extends.
  */
-
 public abstract class MarkdownBuilder<T extends MarkdownBuilder<T, S>, S extends MarkdownElement> implements MarkdownSerializable {
 
     protected S markdownElement;

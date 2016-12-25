@@ -6,7 +6,7 @@ import net.steppschuh.markdowngenerator.MarkdownSerializationException;
 
 public class Text extends MarkdownElement implements MarkdownCascadable {
 
-    Object value;
+    protected Object value;
 
     public Text() {
     }

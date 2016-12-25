@@ -2,7 +2,7 @@ package net.steppschuh.markdowngenerator;
 
 /**
  * {@link MarkdownElement}s that can be wrapped around other {@link MarkdownElement}s should
- * implement this interface. This way they can be supported in the {@link Markdown} Builder.
+ * implement this interface.
  */
 public interface MarkdownCascadable {
 

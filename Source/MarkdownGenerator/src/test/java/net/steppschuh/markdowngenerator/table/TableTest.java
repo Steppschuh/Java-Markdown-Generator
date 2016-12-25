@@ -1,7 +1,7 @@
 package net.steppschuh.markdowngenerator.table;
 
-import net.steppschuh.markdowngenerator.text.BoldText;
-import net.steppschuh.markdowngenerator.text.CodeText;
+import net.steppschuh.markdowngenerator.text.emphasis.BoldText;
+import net.steppschuh.markdowngenerator.text.code.CodeText;
 import net.steppschuh.markdowngenerator.text.Text;
 
 import org.junit.Test;

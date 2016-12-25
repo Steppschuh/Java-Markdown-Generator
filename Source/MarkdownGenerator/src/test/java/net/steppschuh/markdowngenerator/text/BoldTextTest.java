@@ -1,6 +1,7 @@
 package net.steppschuh.markdowngenerator.text;
 
 import net.steppschuh.markdowngenerator.DummyObject;
+import net.steppschuh.markdowngenerator.text.emphasis.BoldText;
 
 import org.junit.Test;
 

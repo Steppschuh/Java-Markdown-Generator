@@ -1,5 +1,7 @@
 package net.steppschuh.markdowngenerator.text;
 
+import net.steppschuh.markdowngenerator.text.quote.Quote;
+
 import org.junit.Test;
 
 /**
