@@ -1,5 +1,6 @@
-package net.steppschuh.markdowngenerator.text;
+package net.steppschuh.markdowngenerator.text.heading;
 
+import net.steppschuh.markdowngenerator.text.Text;
 import net.steppschuh.markdowngenerator.util.StringUtil;
 
 /**

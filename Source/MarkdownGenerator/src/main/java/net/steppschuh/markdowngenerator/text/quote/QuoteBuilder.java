@@ -1,4 +1,4 @@
-package net.steppschuh.markdowngenerator.text;
+package net.steppschuh.markdowngenerator.text.quote;
 
 import net.steppschuh.markdowngenerator.MarkdownBuilder;
 

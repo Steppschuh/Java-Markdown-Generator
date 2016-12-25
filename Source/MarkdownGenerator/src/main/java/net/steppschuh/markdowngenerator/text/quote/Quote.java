@@ -1,6 +1,7 @@
-package net.steppschuh.markdowngenerator.text;
+package net.steppschuh.markdowngenerator.text.quote;
 
 import net.steppschuh.markdowngenerator.MarkdownSerializationException;
+import net.steppschuh.markdowngenerator.text.Text;
 
 /**
  * Created by steppschuh on 15/12/2016.

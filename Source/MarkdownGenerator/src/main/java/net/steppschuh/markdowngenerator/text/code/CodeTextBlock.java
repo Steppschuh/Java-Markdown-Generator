@@ -1,4 +1,6 @@
-package net.steppschuh.markdowngenerator.text;
+package net.steppschuh.markdowngenerator.text.code;
+
+import net.steppschuh.markdowngenerator.text.Text;
 
 public class CodeTextBlock extends Text {
 

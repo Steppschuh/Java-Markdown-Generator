@@ -1,4 +1,6 @@
-package net.steppschuh.markdowngenerator.text;
+package net.steppschuh.markdowngenerator.text.emphasis;
+
+import net.steppschuh.markdowngenerator.text.Text;
 
 public class ItalicText extends Text {
 
