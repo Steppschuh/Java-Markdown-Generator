@@ -6,28 +6,28 @@ import net.steppschuh.markdowngenerator.MarkdownBuilder;
  * Created by Stephan on 12/25/2016.
  */
 
-public class BlockQuoteBuilder extends MarkdownBuilder<BlockQuoteBuilder, BlockQuote> {
+public class QuoteBuilder extends MarkdownBuilder<QuoteBuilder, Quote> {
 
-    public BlockQuoteBuilder() {
+    public QuoteBuilder() {
         super();
     }
 
-    public BlockQuoteBuilder(MarkdownBuilder parentBuilder) {
+    public QuoteBuilder(MarkdownBuilder parentBuilder) {
         super(parentBuilder);
     }
 
     @Override
-    protected BlockQuoteBuilder getBuilder() {
+    protected QuoteBuilder getBuilder() {
         return this;
     }
 
     @Override
-    protected BlockQuote createMarkdownElement() {
-        return new BlockQuote("");
+    protected Quote createMarkdownElement() {
+        return new Quote("");
     }
 
     @Override
-    public BlockQuoteBuilder append(Object value) {
+    public QuoteBuilder append(Object value) {
         markdownElement.setValue(new StringBuilder()
                 .append(markdownElement.getValue())
                 .append(value)

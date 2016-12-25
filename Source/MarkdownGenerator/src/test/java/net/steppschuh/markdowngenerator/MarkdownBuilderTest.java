@@ -24,7 +24,7 @@ public class MarkdownBuilderTest {
                     .append(italic("I should be an italic item"))
                 .end()
                 .newParagraph()
-                .beginBlockQuote()
+                .beginQuote()
                     .append("I should be a quote")
                     .newLine()
                     .append("I should still be a quote")

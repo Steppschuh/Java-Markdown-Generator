@@ -6,9 +6,9 @@ import net.steppschuh.markdowngenerator.MarkdownSerializationException;
  * Created by steppschuh on 15/12/2016.
  */
 
-public class BlockQuote extends Text {
+public class Quote extends Text {
 
-    public BlockQuote(Object value) {
+    public Quote(Object value) {
         super(value);
     }
 

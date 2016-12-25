@@ -1,7 +1,7 @@
 package net.steppschuh.markdowngenerator;
 
 import net.steppschuh.markdowngenerator.list.ListBuilder;
-import net.steppschuh.markdowngenerator.text.BlockQuoteBuilder;
+import net.steppschuh.markdowngenerator.text.QuoteBuilder;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
@@ -47,8 +47,8 @@ public abstract class MarkdownBuilder<T extends MarkdownBuilder<T, S>, S extends
         return new ListBuilder(this);
     }
 
-    public BlockQuoteBuilder beginBlockQuote() {
-        return new BlockQuoteBuilder(this);
+    public QuoteBuilder beginQuote() {
+        return new QuoteBuilder(this);
     }
 
     public MarkdownBuilder end() {

@@ -9,6 +9,7 @@ import net.steppschuh.markdowngenerator.text.CodeText;
 import net.steppschuh.markdowngenerator.text.CodeTextBlock;
 import net.steppschuh.markdowngenerator.text.Heading;
 import net.steppschuh.markdowngenerator.text.ItalicText;
+import net.steppschuh.markdowngenerator.text.Quote;
 import net.steppschuh.markdowngenerator.text.StrikeThroughText;
 import net.steppschuh.markdowngenerator.text.Text;
 
@@ -90,6 +91,12 @@ public abstract class Markdown {
         ProgressBar progressBar = new ProgressBar(progress);
         progressBar.setAppendPercentage(true);
         return progressBar;
+    }
+
+    // Quote
+
+    public static Quote quote(String value) {
+        return new Quote(value);
     }
 
     // Code
