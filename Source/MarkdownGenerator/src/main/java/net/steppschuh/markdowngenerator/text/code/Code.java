@@ -2,9 +2,9 @@ package net.steppschuh.markdowngenerator.text.code;
 
 import net.steppschuh.markdowngenerator.text.Text;
 
-public class CodeText extends Text {
+public class Code extends Text {
 
-    public CodeText(Object value) {
+    public Code(Object value) {
         super(value);
     }
 

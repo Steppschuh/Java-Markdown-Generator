@@ -2,15 +2,15 @@ package net.steppschuh.markdowngenerator.text.code;
 
 import net.steppschuh.markdowngenerator.text.Text;
 
-public class CodeTextBlock extends Text {
+public class CodeBlock extends Text {
 
     private String language;
 
-    public CodeTextBlock(Object value) {
+    public CodeBlock(Object value) {
         this(value, "");
     }
 
-    public CodeTextBlock(Object value, String language) {
+    public CodeBlock(Object value, String language) {
         super(value);
         this.language = language;
     }

@@ -1,7 +1,7 @@
 package net.steppschuh.markdowngenerator.table;
 
 import net.steppschuh.markdowngenerator.text.emphasis.BoldText;
-import net.steppschuh.markdowngenerator.text.code.CodeText;
+import net.steppschuh.markdowngenerator.text.code.Code;
 import net.steppschuh.markdowngenerator.text.Text;
 
 import org.junit.Test;
@@ -25,7 +25,7 @@ public class TableTest {
                 new TableRow(Arrays.asList(
                         new Text("Normal Text"),
                         new BoldText("Bold Text"),
-                        new CodeText("Code Text")
+                        new Code("Code Text")
                 )),
                 new TableRow(Arrays.asList(
                         1,

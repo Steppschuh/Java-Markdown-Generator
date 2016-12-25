@@ -5,8 +5,8 @@ import net.steppschuh.markdowngenerator.link.Link;
 import net.steppschuh.markdowngenerator.progress.ProgressBar;
 import net.steppschuh.markdowngenerator.rule.HorizontalRule;
 import net.steppschuh.markdowngenerator.text.emphasis.BoldText;
-import net.steppschuh.markdowngenerator.text.code.CodeText;
-import net.steppschuh.markdowngenerator.text.code.CodeTextBlock;
+import net.steppschuh.markdowngenerator.text.code.Code;
+import net.steppschuh.markdowngenerator.text.code.CodeBlock;
 import net.steppschuh.markdowngenerator.text.heading.Heading;
 import net.steppschuh.markdowngenerator.text.emphasis.ItalicText;
 import net.steppschuh.markdowngenerator.text.quote.Quote;
@@ -101,15 +101,15 @@ public abstract class Markdown {
 
     // Code
 
-    public static CodeText code(String value) {
-        return new CodeText(value);
+    public static Code code(String value) {
+        return new Code(value);
     }
 
-    public static CodeTextBlock codeBlock(String value, String language) {
-        return new CodeTextBlock(value, language);
+    public static CodeBlock codeBlock(String value, String language) {
+        return new CodeBlock(value, language);
     }
 
-    public static CodeTextBlock codeBlock(String language) {
+    public static CodeBlock codeBlock(String language) {
         return codeBlock(null, language);
     }
 

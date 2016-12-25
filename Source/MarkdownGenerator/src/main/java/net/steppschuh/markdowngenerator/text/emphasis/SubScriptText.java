@@ -2,15 +2,15 @@ package net.steppschuh.markdowngenerator.text.emphasis;
 
 import net.steppschuh.markdowngenerator.text.Text;
 
-public class SuperScript extends Text {
+public class SubScriptText extends Text {
 
-    public SuperScript(Object value) {
+    public SubScriptText(Object value) {
         super(value);
     }
 
     @Override
     public String getPredecessor() {
-        return "^";
+        return "~";
     }
 
 }
