@@ -68,12 +68,26 @@ public class MarkdownBuilderTest {
                 .text("Demonstrating: ").bold("Bold Text")
                 .newParagraph()
                 .quote("I should be a quote\nI should still be a quote")
-                .code("// I should be code")
+                .beginQuote()
+                        .text("I should be a quote").newLine()
+                        .text("I should still be a quote")
+                .end()
+                .newParagraph()
+                .code("INLINE_CODE")
+                .beginCodeBlock(CodeBlock.LANGUAGE_JAVA)
+                    .text("// some comment").newLine()
+                    .text("dummyMethod(this);")
+                .end()
                 .subHeading("Lists")
                 .unorderedList(
                         "I should be an item",
-                        Markdown.italic("I should be an italic item")
+                        italic("I should be an italic item")
                 )
+                .beginList()
+                        .text("I should be an item")
+                        .italic("I should be an italic item")
+                .end()
+                .newParagraph()
                 .taskList(
                         Markdown.task("Task 1", true),
                         Markdown.task("Task 2", false),

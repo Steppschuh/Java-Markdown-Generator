@@ -60,6 +60,7 @@ public abstract class MarkdownBuilder<T extends MarkdownBuilder<T, S>, S extends
     }
 
     public CodeBlockBuilder beginCodeBlock() {
+        newParagraphIfRequired();
         return beginCodeBlock(CodeBlock.LANGUAGE_UNKNOWN);
     }
 
@@ -154,6 +155,7 @@ public abstract class MarkdownBuilder<T extends MarkdownBuilder<T, S>, S extends
     // Quote
 
     public QuoteBuilder beginQuote() {
+        newParagraphIfRequired();
         return new QuoteBuilder(this);
     }
 
@@ -166,6 +168,7 @@ public abstract class MarkdownBuilder<T extends MarkdownBuilder<T, S>, S extends
     // Code
 
     public CodeBlockBuilder beginCodeBlock(String language) {
+        newParagraphIfRequired();
         return new CodeBlockBuilder(this, language);
     }
 
