@@ -8,6 +8,7 @@ import org.junit.Test;
 
 import static net.steppschuh.markdowngenerator.Markdown.bold;
 import static net.steppschuh.markdowngenerator.Markdown.italic;
+import static net.steppschuh.markdowngenerator.Markdown.task;
 
 /**
  * Created by steppschuh on 23/12/2016.
@@ -75,8 +76,8 @@ public class MarkdownBuilderTest {
                 .newParagraph()
                 .code("INLINE_CODE")
                 .beginCodeBlock(CodeBlock.LANGUAGE_JAVA)
-                    .text("// some comment").newLine()
-                    .text("dummyMethod(this);")
+                        .text("// some comment").newLine()
+                        .text("dummyMethod(this);")
                 .end()
                 .subHeading("Lists")
                 .unorderedList(
@@ -89,9 +90,9 @@ public class MarkdownBuilderTest {
                 .end()
                 .newParagraph()
                 .taskList(
-                        Markdown.task("Task 1", true),
-                        Markdown.task("Task 2", false),
-                        Markdown.task("Task 3")
+                        task("Task 1", true),
+                        task("Task 2", false),
+                        task("Task 3")
                 );
 
         System.out.println(builder.toString());

@@ -22,7 +22,7 @@ public class TextBuilder extends MarkdownBuilder<TextBuilder, Text> {
 
     @Override
     protected Text createMarkdownElement() {
-        return new Text();
+        return new Text("");
     }
 
     @Override

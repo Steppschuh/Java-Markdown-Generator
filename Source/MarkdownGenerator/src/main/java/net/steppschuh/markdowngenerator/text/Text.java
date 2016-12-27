@@ -8,9 +8,6 @@ public class Text extends MarkdownElement implements MarkdownCascadable {
 
     protected Object value;
 
-    public Text() {
-    }
-
     public Text(Object value) {
         this.value = value;
     }
