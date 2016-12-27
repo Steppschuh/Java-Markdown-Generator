@@ -1,6 +1,8 @@
-package net.steppschuh.markdowngenerator.text;
+package net.steppschuh.markdowngenerator.text.emphasis;
 
 import net.steppschuh.markdowngenerator.DummyObject;
+import net.steppschuh.markdowngenerator.text.Text;
+import net.steppschuh.markdowngenerator.text.emphasis.StrikeThroughText;
 
 import org.junit.Test;
 

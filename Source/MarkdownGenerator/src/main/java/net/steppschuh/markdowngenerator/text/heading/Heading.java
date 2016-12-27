@@ -1,5 +1,6 @@
-package net.steppschuh.markdowngenerator.text;
+package net.steppschuh.markdowngenerator.text.heading;
 
+import net.steppschuh.markdowngenerator.text.Text;
 import net.steppschuh.markdowngenerator.util.StringUtil;
 
 /**
@@ -29,7 +30,7 @@ public class Heading extends Text {
     }
 
     @Override
-    protected String getPredecessor() {
+    public String getPredecessor() {
         if (underlineStyle && level < 3) {
             return "";
         }
@@ -37,7 +38,7 @@ public class Heading extends Text {
     }
 
     @Override
-    protected String getSuccessor() {
+    public String getSuccessor() {
         if (underlineStyle && level < 3) {
             char underlineChar = (level == 1) ? UNDERLINE_CHAR_1 : UNDERLINE_CHAR_2;
             return "\n" + StringUtil.fillUpLeftAligned("", "" + underlineChar, value.toString().length());

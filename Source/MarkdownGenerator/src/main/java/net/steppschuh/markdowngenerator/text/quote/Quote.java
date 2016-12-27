@@ -1,14 +1,15 @@
-package net.steppschuh.markdowngenerator.text;
+package net.steppschuh.markdowngenerator.text.quote;
 
 import net.steppschuh.markdowngenerator.MarkdownSerializationException;
+import net.steppschuh.markdowngenerator.text.Text;
 
 /**
  * Created by steppschuh on 15/12/2016.
  */
 
-public class Blockquote extends Text {
+public class Quote extends Text {
 
-    public Blockquote(Object value) {
+    public Quote(Object value) {
         super(value);
     }
 
@@ -27,4 +28,5 @@ public class Blockquote extends Text {
         }
         return sb.toString();
     }
+
 }

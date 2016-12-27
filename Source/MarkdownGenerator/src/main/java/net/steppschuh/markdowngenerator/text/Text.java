@@ -1,11 +1,12 @@
 package net.steppschuh.markdowngenerator.text;
 
+import net.steppschuh.markdowngenerator.MarkdownCascadable;
 import net.steppschuh.markdowngenerator.MarkdownElement;
 import net.steppschuh.markdowngenerator.MarkdownSerializationException;
 
-public class Text extends MarkdownElement {
+public class Text extends MarkdownElement implements MarkdownCascadable {
 
-    Object value;
+    protected Object value;
 
     public Text(Object value) {
         this.value = value;
@@ -19,11 +20,13 @@ public class Text extends MarkdownElement {
         return getPredecessor() + value.toString() + getSuccessor();
     }
 
-    protected String getPredecessor() {
+    @Override
+    public String getPredecessor() {
         return "";
     }
 
-    protected String getSuccessor() {
+    @Override
+    public String getSuccessor() {
         return getPredecessor();
     }
 

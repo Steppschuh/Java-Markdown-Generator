@@ -1,5 +1,8 @@
 package net.steppschuh.markdowngenerator;
 
+/**
+ * Base class that every markdown element extends.
+ */
 public abstract class MarkdownElement implements MarkdownSerializable {
 
     private String serialized;
