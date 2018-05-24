@@ -21,7 +21,7 @@ public class CodeBlock extends Text {
 
     @Override
     public String getPredecessor() {
-        return "```" + language + "\n";
+        return "```" + language + System.lineSeparator();
     }
 
     @Override
