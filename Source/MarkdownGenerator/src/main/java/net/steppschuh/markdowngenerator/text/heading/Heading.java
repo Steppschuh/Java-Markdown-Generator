@@ -41,7 +41,7 @@ public class Heading extends Text {
     public String getSuccessor() {
         if (underlineStyle && level < 3) {
             char underlineChar = (level == 1) ? UNDERLINE_CHAR_1 : UNDERLINE_CHAR_2;
-            return "\n" + StringUtil.fillUpLeftAligned("", "" + underlineChar, value.toString().length());
+            return System.lineSeparator() + StringUtil.fillUpLeftAligned("", "" + underlineChar, value.toString().length());
         }
         return "";
     }

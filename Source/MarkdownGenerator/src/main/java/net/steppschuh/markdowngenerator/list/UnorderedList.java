@@ -43,7 +43,7 @@ public class UnorderedList<T extends Object> extends MarkdownElement {
             }
 
             if (itemIndex < items.size() - 1) {
-                sb.append("\n");
+                sb.append(System.lineSeparator());
             }
         }
         return sb.toString();
