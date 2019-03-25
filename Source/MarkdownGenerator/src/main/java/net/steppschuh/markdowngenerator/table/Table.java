@@ -142,7 +142,7 @@ public class Table extends MarkdownElement {
                 }
             }
 
-            if (rows.indexOf(row) < rows.size() - 1) {
+            if (rows.indexOf(row) < rows.size() - 1 || rows.size() == 1) {
                 sb.append("\n");
             }
 
