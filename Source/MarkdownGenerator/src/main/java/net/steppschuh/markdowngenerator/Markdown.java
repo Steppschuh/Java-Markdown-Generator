@@ -22,9 +22,11 @@ import java.util.Arrays;
  * Created by steppschuh on 23/12/2016.
  */
 
+//Methods declared by this class are the ones you as developer will call within your code to make use of.
+
 public abstract class Markdown {
 
-    // Heading
+    // Headings emphasize code with the respective heading style chosen, headings will also automatically generate a divider below them.
 
     public static Heading heading(String value, int level) {
         return new Heading(value, level);
@@ -38,7 +40,7 @@ public abstract class Markdown {
         return heading(value, 2);
     }
 
-    // Rule
+    // Rules, act as lines to separate code or text
 
     public static HorizontalRule rule() {
         return new HorizontalRule();
@@ -48,7 +50,7 @@ public abstract class Markdown {
         return new HorizontalRule(length);
     }
 
-    // Emphasis
+    // The 4 methods below define the style of text, as regular, boldened, italic, or strike through
 
     public static Text text(String value) {
         return new Text(value);
@@ -66,7 +68,7 @@ public abstract class Markdown {
         return new StrikeThroughText(value);
     }
 
-    // Link
+    // The 2 methods below will generate hyperlinks
 
     public static Link link(String text, String url) {
         return new Link(text, url);
@@ -76,7 +78,7 @@ public abstract class Markdown {
         return new Link(url);
     }
 
-    // Image
+    // Image methods allow the developer to declare an image in markdown and for it to display properly in a markdown document.
 
     public static Image image(String text, String url) {
         return new Image(text, url);
@@ -86,7 +88,7 @@ public abstract class Markdown {
         return new Image(url);
     }
 
-    // Progress
+    // Implementation of progress bars.
 
     public static ProgressBar progress(double progress) {
         return new ProgressBar(progress);
@@ -98,13 +100,13 @@ public abstract class Markdown {
         return progressBar;
     }
 
-    // Quote
+    // Quote, used for quoting text
 
     public static Quote quote(String value) {
         return new Quote(value);
     }
 
-    // Code
+    // Code methods below are used to peoperly identify code blocks within a markdown document
 
     public static Code code(String value) {
         return new Code(value);
@@ -118,7 +120,7 @@ public abstract class Markdown {
         return codeBlock(null, language);
     }
 
-    // List
+    // List methods below provide ability to generate unordered istds as well as task lists.
 
     public static UnorderedList unorderedList(Object... items) {
         return new UnorderedList(Arrays.asList(items));
