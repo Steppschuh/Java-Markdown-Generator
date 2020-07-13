@@ -1,7 +1,5 @@
 package net.steppschuh.markdowngenerator.list;
 
-import net.steppschuh.markdowngenerator.list.UnorderedList;
-
 import java.util.List;
 
 public class OrderedList extends UnorderedList<OrderedListItem> {

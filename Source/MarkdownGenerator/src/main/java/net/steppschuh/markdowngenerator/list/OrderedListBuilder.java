@@ -1,12 +1,13 @@
 package net.steppschuh.markdowngenerator.list;
 
-import net.steppschuh.markdowngenerator.MarkdownBuilder;
 import net.steppschuh.markdowngenerator.MarkdownSerializable;
 
 public class OrderedListBuilder extends ListBuilder {
 
+    protected OrderedList list;
+
     @Override protected OrderedList createMarkdownElement() {
-        return new OrderedList();
+        return list = new OrderedList();
     }
 
     @Override protected OrderedListBuilder getBuilder() {
@@ -14,11 +15,13 @@ public class OrderedListBuilder extends ListBuilder {
     }
 
     @Override public OrderedListBuilder append(Object value) {
-        return (OrderedListBuilder) super.append(value);
+        list.add(new OrderedListItem(value));
+        return this;
     }
 
     @Override public OrderedListBuilder append(MarkdownSerializable value) {
-        return (OrderedListBuilder) super.append(value);
+        list.add(new OrderedListItem(value));
+        return this;
     }
 
     @Override public OrderedList build() {
