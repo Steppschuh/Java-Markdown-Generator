@@ -17,7 +17,10 @@ allprojects {
     apply plugin: 'maven'
     apply plugin: 'maven-publish'
     apply plugin: 'java'
-    apply plugin: "jacoco"
+    apply plugin: 'jacoco'
+    jacoco {
+        toolVersion = '0.8.5'
+    }
 }
 
 group 'net.steppschuh.markdowngenerator'
