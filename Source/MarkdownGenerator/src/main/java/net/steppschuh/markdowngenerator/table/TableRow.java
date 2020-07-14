@@ -26,13 +26,13 @@ public class TableRow<T extends Object> extends MarkdownElement {
             if (item == null) {
                 throw new MarkdownSerializationException("Column is null");
             }
-            if (item.toString().contains(Table.SEPERATOR)) {
-                throw new MarkdownSerializationException("Column contains seperator char \"" + Table.SEPERATOR + "\"");
+            if (item.toString().contains(Table.SEPARATOR)) {
+                throw new MarkdownSerializationException("Column contains seperator char \"" + Table.SEPARATOR + "\"");
             }
-            sb.append(Table.SEPERATOR);
+            sb.append(Table.SEPARATOR);
             sb.append(StringUtil.surroundValueWith(item.toString(), " "));
             if (columns.indexOf(item) == columns.size() - 1) {
-                sb.append(Table.SEPERATOR);
+                sb.append(Table.SEPARATOR);
             }
         }
         return sb.toString();
