@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MarkdownGenerator.iml" filepath="$PROJECT_DIR$/MarkdownGenerator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/net.steppschuh.markdowngenerator-MarkdownGenerator.iml" filepath="$PROJECT_DIR$/.idea/modules/net.steppschuh.markdowngenerator-MarkdownGenerator.iml" group="MarkdownGenerator" />
     </modules>
   </component>
 </project>
