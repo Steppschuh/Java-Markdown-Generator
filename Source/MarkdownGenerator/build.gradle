@@ -5,7 +5,7 @@ buildscript {
 }
 
 plugins {
-    id "com.jfrog.bintray" version "1.7.3"
+    id "com.jfrog.bintray" version "1.8.5"
 }
 
 allprojects {
@@ -23,8 +23,10 @@ allprojects {
     }
 }
 
+def libraryVersion = '1.3.2'
+
 group 'net.steppschuh.markdowngenerator'
-version = '1.3.2'
+version = libraryVersion
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -59,7 +61,7 @@ publishing {
             artifact javadocJar
             groupId 'net.steppschuh.markdowngenerator'
             artifactId 'markdowngenerator'
-            version "${version}"
+            version "${libraryVersion}"
             pom.withXml {
                 def root = asNode()
                 root.appendNode('description', 'Java library to generate markdown')
@@ -85,10 +87,10 @@ bintray {
         githubRepo = 'Steppschuh/Java-Markdown-Generator'
         githubReleaseNotesFile = 'README.md'
         version {
-            name = "${version}"
-            desc = "Markdown Generator ${version}"
+            name = "${libraryVersion}"
+            desc = "Markdown Generator ${libraryVersion}"
             released = new Date()
-            vcsTag = "${version}"
+            vcsTag = "${libraryVersion}"
             gpg {
                 sign = true
             }
