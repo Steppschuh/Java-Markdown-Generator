@@ -1,5 +1,6 @@
 # Java Markdown Generator
-[![Travis](https://img.shields.io/travis/Steppschuh/Java-Markdown-Generator.svg)](https://travis-ci.org/Steppschuh/Java-Markdown-Generator/) [![Bintray](https://api.bintray.com/packages/steppschuh/Markdown-Generator/Markdown-Generator/images/download.svg) ](https://bintray.com/steppschuh/Markdown-Generator/Markdown-Generator/_latestVersion) [![Maven Central](https://img.shields.io/maven-central/v/net.steppschuh.markdowngenerator/markdowngenerator.svg)](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22net.steppschuh.markdowngenerator%22) [![Codecov](https://img.shields.io/codecov/c/github/Steppschuh/Java-Markdown-Generator.svg)](https://codecov.io/gh/Steppschuh/Java-Markdown-Generator)
+[![Travis](https://img.shields.io/travis/Steppschuh/Java-Markdown-Generator.svg)](https://travis-ci.org/Steppschuh/Java-Markdown-Generator/) [![JitPack](https://img.shields.io/jitpack/v/Steppschuh/Java-Markdown-Generator.svg)](https://jitpack.io/#Steppschuh/Java-Markdown-Generator)
+ [![Bintray](https://api.bintray.com/packages/steppschuh/Markdown-Generator/Markdown-Generator/images/download.svg) ](https://bintray.com/steppschuh/Markdown-Generator/Markdown-Generator/_latestVersion) [![Maven Central](https://img.shields.io/maven-central/v/net.steppschuh.markdowngenerator/markdowngenerator.svg)](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22net.steppschuh.markdowngenerator%22) [![Codecov](https://img.shields.io/codecov/c/github/Steppschuh/Java-Markdown-Generator.svg)](https://codecov.io/gh/Steppschuh/Java-Markdown-Generator)
 
 Simple to use Java library to generate beautiful markdown.
 
@@ -29,7 +30,7 @@ repositories {
     maven { url 'http://dl.bintray.com/steppschuh/Markdown-Generator' }
 }
 dependencies {
-    compile 'net.steppschuh.markdowngenerator:markdowngenerator:1.3.1.1'
+    compile 'net.steppschuh.markdowngenerator:markdowngenerator:1.3.2'
 }
 ```
 
@@ -38,7 +39,7 @@ dependencies {
 <dependency>
   <groupId>net.steppschuh.markdowngenerator</groupId>
   <artifactId>markdowngenerator</artifactId>
-  <version>1.3.1.1</version>
+  <version>1.3.2</version>
 </dependency>
 ```
 
