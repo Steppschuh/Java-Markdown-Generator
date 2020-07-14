@@ -1,0 +1,6 @@
+install:
+  - echo "Publishing Markdown Generator"
+  - cd Source/MarkdownGenerator/
+  - ./gradlew build publishToMavenLocal
+  - cp build/libs ~/.m2/repository
+  - cp build/publications/MyPublication ~/.m2/repository
