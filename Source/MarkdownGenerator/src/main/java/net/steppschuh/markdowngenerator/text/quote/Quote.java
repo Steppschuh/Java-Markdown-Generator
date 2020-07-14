@@ -23,7 +23,7 @@ public class Quote extends Text {
         for (int lineIndex = 0; lineIndex < lines.length; lineIndex++) {
             sb.append("> ").append(lines[lineIndex]);
             if (lineIndex < lines.length - 1) {
-                sb.append("\n");
+                sb.append(System.lineSeparator());
             }
         }
         return sb.toString();

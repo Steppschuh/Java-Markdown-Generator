@@ -17,7 +17,7 @@ repositories {
     }
 }
 dependencies {
-    compile 'net.steppschuh.markdowngenerator:markdowngenerator:1.3.0.0'
+    compile 'net.steppschuh.markdowngenerator:markdowngenerator:1.3.1.1'
 }
 ```
 
@@ -26,8 +26,7 @@ dependencies {
 <dependency>
   <groupId>net.steppschuh.markdowngenerator</groupId>
   <artifactId>markdowngenerator</artifactId>
-  <version>1.3.0.0</version>
-  <type>pom</type>
+  <version>1.3.1.1</version>
 </dependency>
 ```
 
@@ -35,6 +34,8 @@ dependencies {
 You can download the latest .jar files from [GitHub](https://github.com/Steppschuh/Java-Markdown-Generator/releases) or [Bintray](https://bintray.com/steppschuh/Markdown-Generator/Markdown-Generator/).
 
 ## Examples
+
+Most Markdown elements have static convenience methods in the `Markdown` class. You can also use their repesctive constructors, as shown below. 
 
 ### Emphasis
 ```java
