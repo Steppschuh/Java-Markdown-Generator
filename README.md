@@ -10,11 +10,23 @@ Simple to use Java library to generate beautiful markdown.
 ## Integration
 
 ### Gradle
+
+You can get snapshot and release builds from [JitPack](https://jitpack.io/#Steppschuh/Java-Markdown-Generator):
+
 ```groovy
 repositories {
-    maven {
-        url  "http://dl.bintray.com/steppschuh/Markdown-Generator"
-    }
+    maven { url 'https://jitpack.io' }
+}
+dependencies {
+    compile 'com.github.Steppschuh:Java-Markdown-Generator:master-SNAPSHOT'
+}
+```
+
+Alternatively, release builds are also available on [Bintray](https://bintray.com/steppschuh/Markdown-Generator/Markdown-Generator/):
+
+```groovy
+repositories {
+    maven { url 'http://dl.bintray.com/steppschuh/Markdown-Generator' }
 }
 dependencies {
     compile 'net.steppschuh.markdowngenerator:markdowngenerator:1.3.1.1'
