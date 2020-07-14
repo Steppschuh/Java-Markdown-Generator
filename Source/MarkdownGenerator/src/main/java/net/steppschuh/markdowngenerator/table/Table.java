@@ -14,7 +14,7 @@ import static net.steppschuh.markdowngenerator.util.StringUtil.surroundValueWith
 
 public class Table extends MarkdownElement {
 
-    public static final String SEPERATOR = "|";
+    public static final String SEPARATOR = "|";
     public static final String WHITESPACE = " ";
     public static final String DEFAULT_TRIMMING_INDICATOR = "~";
     public static final int DEFAULT_MINIMUM_COLUMN_WIDTH = 3;
@@ -25,7 +25,7 @@ public class Table extends MarkdownElement {
 
     private List<TableRow> rows;
     private List<Integer> alignments;
-    private boolean firstRowIsHeader = true;
+    private boolean firstRowIsHeader;
     private int minimumColumnWidth = DEFAULT_MINIMUM_COLUMN_WIDTH;
     private String trimmingIndicator = DEFAULT_TRIMMING_INDICATOR;
 
@@ -108,15 +108,15 @@ public class Table extends MarkdownElement {
 
         StringBuilder sb = new StringBuilder();
 
-        String headerSeperator = generateHeaderSeperator(columnWidths, alignments);
+        String headerSeparator = generateHeaderSeparator(columnWidths, alignments);
         boolean headerSeperatorAdded = !firstRowIsHeader;
         if (!firstRowIsHeader) {
-            sb.append(headerSeperator).append(System.lineSeparator());
+            sb.append(headerSeparator).append(System.lineSeparator());
         }
 
         for (TableRow row : rows) {
             for (int columnIndex = 0; columnIndex < columnWidths.size(); columnIndex++) {
-                sb.append(SEPERATOR);
+                sb.append(SEPARATOR);
 
                 String value = "";
                 if (row.getColumns().size() > columnIndex) {
@@ -138,16 +138,16 @@ public class Table extends MarkdownElement {
                 sb.append(value);
 
                 if (columnIndex == row.getColumns().size() - 1) {
-                    sb.append(SEPERATOR);
+                    sb.append(SEPARATOR);
                 }
             }
 
-            if (rows.indexOf(row) < rows.size() - 1) {
+            if (rows.indexOf(row) < rows.size() - 1 || rows.size() == 1) {
                 sb.append(System.lineSeparator());
             }
 
             if (!headerSeperatorAdded) {
-                sb.append(headerSeperator).append(System.lineSeparator());
+                sb.append(headerSeparator).append(System.lineSeparator());
                 headerSeperatorAdded = true;
             }
         }
@@ -170,8 +170,8 @@ public class Table extends MarkdownElement {
      * Removes {@link TableRow}s from the center of the specified table until only the requested
      * amount of rows is left.
      *
-     * @param table      Table to remove {@link TableRow}s from
-     * @param rowsToKeep Amount of {@link TableRow}s that should not be removed
+     * @param table             Table to remove {@link TableRow}s from
+     * @param rowsToKeep        Amount of {@link TableRow}s that should not be removed
      * @param trimmingIndicator The content that trimmed cells should be filled with
      * @return The trimmed table
      */
@@ -200,10 +200,10 @@ public class Table extends MarkdownElement {
         return table;
     }
 
-    public static String generateHeaderSeperator(Map<Integer, Integer> columnWidths, List<Integer> alignments) {
+    public static String generateHeaderSeparator(Map<Integer, Integer> columnWidths, List<Integer> alignments) {
         StringBuilder sb = new StringBuilder();
         for (int columnIndex = 0; columnIndex < columnWidths.entrySet().size(); columnIndex++) {
-            sb.append(SEPERATOR);
+            sb.append(SEPARATOR);
 
             String value = StringUtil.fillUpLeftAligned("", "-", columnWidths.get(columnIndex));
 
@@ -225,7 +225,7 @@ public class Table extends MarkdownElement {
 
             sb.append(value);
             if (columnIndex == columnWidths.entrySet().size() - 1) {
-                sb.append(SEPERATOR);
+                sb.append(SEPARATOR);
             }
         }
         return sb.toString();

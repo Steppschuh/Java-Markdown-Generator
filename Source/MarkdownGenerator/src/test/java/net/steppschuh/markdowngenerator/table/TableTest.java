@@ -58,4 +58,12 @@ public class TableTest {
         System.out.println(tableBuilder.build());
     }
 
+    @Test
+    public void example3() {
+        Table.Builder tableBuilder = new Table.Builder()
+                .addRow("Index", "Boolean");
+
+        System.out.println(tableBuilder.build());
+    }
+
 }

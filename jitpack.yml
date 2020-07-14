@@ -1,0 +1,4 @@
+install:
+  - echo "Publishing Markdown Generator"
+  - cd Source/MarkdownGenerator/
+  - ./gradlew clean build publishToMavenLocal
