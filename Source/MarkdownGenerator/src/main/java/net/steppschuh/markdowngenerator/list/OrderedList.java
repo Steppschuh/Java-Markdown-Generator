@@ -10,7 +10,7 @@ public class OrderedList extends UnorderedList<OrderedListItem> {
         elementCount = 0;
     }
 
-    public OrderedList(List<OrderedListItem> items) {
+    public OrderedList(List<T> items) {
         super(items);
         items.forEach(i -> i.setIndex(++elementCount));
     }
