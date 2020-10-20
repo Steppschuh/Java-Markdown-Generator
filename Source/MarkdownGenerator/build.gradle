@@ -6,6 +6,7 @@ buildscript {
 
 plugins {
     id "com.jfrog.bintray" version "1.8.5"
+    id "biz.aQute.bnd.builder" version "5.1.0"
 }
 
 allprojects {
