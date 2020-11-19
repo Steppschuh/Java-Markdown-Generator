@@ -6,6 +6,7 @@ buildscript {
 
 plugins {
     id "com.jfrog.bintray" version "1.8.5"
+    id "biz.aQute.bnd.builder" version "4.3.1"
 }
 
 allprojects {
@@ -21,6 +22,7 @@ allprojects {
     jacoco {
         toolVersion = '0.8.5'
     }
+
 }
 
 def libraryVersion = '1.3.2'
