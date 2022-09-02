@@ -2,7 +2,7 @@ package net.steppschuh.markdowngenerator.list;
 
 import java.util.List;
 
-public class OrderedList extends UnorderedList<OrderedListItem> {
+public class OrderedList<T extends Object> extends UnorderedList<T> {
 
     private int elementCount;
 
