@@ -26,36 +26,43 @@ public abstract class StringUtil {
         if (value.length() >= length) {
             return value;
         }
-        while (value.length() < length) {
-            value += fill;
+        StringBuilder valueBuilder = new StringBuilder(length);
+        valueBuilder.append(value);
+        while (valueBuilder.length() < length) {
+            valueBuilder.append(fill);
         }
-        return value;
+        return valueBuilder.toString();
     }
 
     public static String fillUpRightAligned(String value, String fill, int length) {
-        if (value.length() >= length) {
+        int valueLength = value.length();
+        if (valueLength >= length) {
             return value;
         }
-        while (value.length() < length) {
-            value = fill + value;
+        StringBuilder valueBuilder = new StringBuilder(length);
+        int fillLength = length - valueLength;
+        while (valueBuilder.length() < fillLength) {
+            valueBuilder.append(fill);
         }
-        return value;
+        valueBuilder.append(value);
+        return valueBuilder.toString();
     }
 
     public static String fillUpCenterAligned(String value, String fill, int length) {
-        if (value.length() >= length) {
+        int valueLength = value.length();
+        if (valueLength >= length) {
             return value;
         }
-        boolean left = true;
-        while (value.length() < length) {
-            if (left) {
-                value = fillUpLeftAligned(value, fill, value.length() + 1);
-            } else {
-                value = fillUpRightAligned(value, fill, value.length() + 1);
-            }
-            left = !left;
+        int fillLeftCount = (length - valueLength) / 2 / fill.length();
+        StringBuilder valueBuilder = new StringBuilder(length);
+        for (int i=0; i<fillLeftCount; i++) {
+            valueBuilder.append(fill);
         }
-        return value;
+        valueBuilder.append(value);
+        while (valueBuilder.length() < length) {
+            valueBuilder.append(fill);
+        }
+        return valueBuilder.toString();
     }
 
     public static String surroundValueWith(String value, String surrounding) {
